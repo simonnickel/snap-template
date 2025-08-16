@@ -16,7 +16,6 @@ struct ExampleScreen: View {
 	
 	@Dependency(\.dataSource) private var dataSource
     @Environment(\.navigator) private var navigator
-    @Environment(\.isPresentingDestination) private var isPresentingDestination
 	
 	let destination: AppDestination
 	
@@ -30,12 +29,7 @@ struct ExampleScreen: View {
                     Text(dataSource.content)
                 }
                 
-                // TODO: isPresentingDestination does not work well here, because the same list row exists on the next screen. Could be changed to `isPresenting(_ destination:, from:)` and check the combination.
-                // TODO: , systemImage: AppDestination.rectangle.definition.icon
-                // TODO: isPresented might  just get a bool instead of a closure.
-                StyleListRow(.navigate(AppDestination.rectangle, isPresented: { value in isPresentingDestination(value) })) {
-                    Text(AppDestination.rectangle.definition.title)
-                }
+                NavigationListRow(destination: AppDestination.rectangle)
                 
             } header: {
                 

@@ -41,6 +41,7 @@
 		5A08040D2CD026D7004680B3 /* Theme */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Theme; sourceTree = "<group>"; };
 		5A0804172CD026DB004680B3 /* Screens */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Screens; sourceTree = "<group>"; };
 		5A08041E2CD026E7004680B3 /* Project Files */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5A0804212CD026E7004680B3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Project Files"; sourceTree = "<group>"; };
+		5A6C07802E510E7100A79434 /* Style+Definitions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Style+Definitions"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 				5A0804002CD026B6004680B3 /* Services */,
 				5A0804032CD026BB004680B3 /* Data */,
 				5A08040D2CD026D7004680B3 /* Theme */,
+				5A6C07802E510E7100A79434 /* Style+Definitions */,
 				5A0804172CD026DB004680B3 /* Screens */,
 				5A08041E2CD026E7004680B3 /* Project Files */,
 			);
@@ -113,6 +115,7 @@
 				5A0804032CD026BB004680B3 /* Data */,
 				5A08040D2CD026D7004680B3 /* Theme */,
 				5A0804172CD026DB004680B3 /* Screens */,
+				5A6C07802E510E7100A79434 /* Style+Definitions */,
 			);
 			name = SnapTemplateDemo;
 			packageProductDependencies = (

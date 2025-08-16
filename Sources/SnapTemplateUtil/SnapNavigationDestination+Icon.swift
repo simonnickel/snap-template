@@ -4,12 +4,12 @@
 //
 
 import SnapNavigation
-import SnapTheme
+import SnapStyle
 
 extension SnapNavigationDestination {
     
-    var icon: Theme.IconKey? {
-        definition.icon as? Theme.IconKey
+    public var icon: SnapStyle.IconKey.ValueBuilderKeyPath? {
+        definition.icon as? SnapStyle.IconKey.ValueBuilderKeyPath
     }
     
 }
