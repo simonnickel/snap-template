@@ -7,7 +7,7 @@
       "location" : "https://github.com/simonnickel/snap-core",
       "state" : {
         "branch" : "main",
-        "revision" : "f1dc2e740961f5607c0271bc13ce6d56f00eff20"
+        "revision" : "3b0e3b35e441151582220237cbfc2135f898a42d"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/simonnickel/snap-foundation",
       "state" : {
         "branch" : "main",
-        "revision" : "70686e7b95d1e4cd648746f42ba47416e237b9a7"
+        "revision" : "37d983739ef5a331010860b8b51b7ad1f76979ff"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/simonnickel/snap-settings-service",
       "state" : {
         "branch" : "main",
-        "revision" : "dc93c9b86ac98432bd536831a9d589423dfd2507"
+        "revision" : "f769135e0e36a2bb82b1919222d886083c83e49c"
       }
     },
     {
