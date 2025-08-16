@@ -8,6 +8,7 @@ import SnapDependencies
 import SnapSettingsService
 import SnapTemplateSettings
 import SnapTheme
+import SnapStyle
 import SwiftUI
 
 @Observable
@@ -29,6 +30,12 @@ public class TemplateState {
 	
 	/// The `Theme` applied to the AppContainer.
 	public var theme: Theme
+    
+    let style: SnapStyle = SnapStyle(
+        configuration: .init(
+            allowNavigationBarTitleAdjustments: true
+        )
+    )
 	
 	public init(theme: Theme = .base) {
 		self.theme = theme
@@ -41,6 +48,7 @@ public class TemplateState {
 	
 	// MARK: - Settings Updates
 	
+    // TODO: Settings could use Observable.
 	@ObservationIgnored private var subscriptions: [AnyCancellable] = []
 	
 	

@@ -6,6 +6,7 @@
 import SnapDependencies
 import SnapNavigation
 import SnapTemplateSettings
+import SnapStyle
 import SwiftUI
 
 public struct TemplateModifierScene<Destination: SnapNavigationDestination> : ViewModifier {
@@ -20,9 +21,16 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 	
 	public func body(content: Content) -> some View {
 		content
-			.navigationStyle(window == .main ? .tabsAdaptable : nil) // TODO: Style from settings
-			.theme(apply: templateState.theme) // TODO: Check if updates are propagated.
+            .theme(apply: templateState.theme) // TODO: Check if updates are propagated.
+        
+            // SnapStyle
+            .style(setup: templateState.style)
+        
+            // Settings
+            .navigationStyle(window == .main ? .tabsAdaptable : nil) // TODO: Style from settings
 			.preferredColorScheme(templateState.displayMode?.colorScheme)
+        
+            // Others
 #if !os(macOS) // macOS settings are available in the application menu.
 			.tabViewSidebarBottomBar {
 				HStack {
