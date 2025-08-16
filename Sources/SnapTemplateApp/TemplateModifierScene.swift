@@ -25,6 +25,7 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
         
             // SnapStyle
             .style(setup: templateState.style)
+            .style(scaleFactor: templateState.interfaceScale?.scale)
         
             // Settings
             .navigationStyle(window == .main ? .tabsAdaptable : nil) // TODO: Style from settings

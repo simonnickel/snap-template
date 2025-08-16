@@ -73,21 +73,8 @@ public class TemplateState {
 			.withWeak(self)
 			.sink { weakSelf, value in
 				weakSelf.interfaceScale = value
-				weakSelf.applyInterfaceScale()
 			}
 			.store(in: &subscriptions)
-	}
-	
-	private func applyInterfaceScale() {
-		var theme = self.theme
-		
-		if let interfaceScale = interfaceScale {
-			theme = theme.replacingValues(
-				scale: theme.number(interfaceScale.scale)
-			)
-		}
-		
-		self.theme = theme
 	}
 	
 	
