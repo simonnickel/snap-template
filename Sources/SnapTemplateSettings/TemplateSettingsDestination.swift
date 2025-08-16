@@ -5,7 +5,7 @@
 
 import SwiftUI
 import SnapNavigation
-import SnapTheme
+import SnapStyle
 import SnapSettingsService
 
 public enum TemplateSettingsDestination: SnapNavigationDestination {
@@ -15,8 +15,8 @@ public enum TemplateSettingsDestination: SnapNavigationDestination {
 
 	public var definition: SnapNavigation.ScreenDefinition {
 		switch self {
-			case .screen: .init(title: "Rectangle", icon: Theme.IconKey.settings, style: .modal) { TemplateSettingsScreen() }
-			case .tabs: .init(title: "Configure Tabs", icon: Theme.IconKey.settingsTabs) {
+            case .screen: .init(title: "Rectangle", icon: \SnapStyle.IconKey.settings, style: .modal) { TemplateSettingsScreen() }
+			case .tabs: .init(title: "Configure Tabs", icon: \SnapStyle.IconKey.settingsTabs) {
 				
 				// TODO: Inject default config, e.g. by defining a SnapNavigationScreen as generic.
 //				static var tabConfigDefault: TabConfiguration { TabConfiguration(tabs: AppDestination.tabsAvailable.configArray, required: AppDestination.tabsRequired.configSet, disabled: AppDestination.tabsDisabledByDefault.configSet, initial: AppDestination.initial.configTab) }
@@ -30,8 +30,7 @@ public enum TemplateSettingsDestination: SnapNavigationDestination {
 
 	@MainActor
 	public var label: any View {
-		let icon = definition.icon as? Theme.IconKey
-		return ThemeLabel(text: definition.title, icon: icon)
+		return StyleLabel(definition.title, icon: icon)
 	}
 	
 	@MainActor
