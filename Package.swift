@@ -55,7 +55,6 @@ let package = Package(
 			name: "SnapTemplateUtil",
 			dependencies: [
 				.product(name: "SnapNavigation", package: "snap-navigation"),
-                .product(name: "SnapTheme", package: "snap-theme"),
 				.product(name: "SnapStyle", package: "snap-style"),
 			]
 		),
