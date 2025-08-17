@@ -25,6 +25,7 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
         
             // SnapStyle
             .style(setup: templateState.style)
+            .style(accents: templateState.accent?.accentPair ?? .fallback)
             .style(scaleFactor: templateState.interfaceScale?.scale)
         
             // Settings

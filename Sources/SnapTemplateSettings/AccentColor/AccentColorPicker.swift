@@ -4,7 +4,7 @@
 //
 
 import SwiftUI
-import SnapTheme
+import SnapStyle
 import SnapSettingsService
 import SnapDependencies
 
@@ -21,90 +21,37 @@ public struct AccentColorPicker: View {
 	
 	@Dependency(\.settingsService) private var settings
 	
-	private let setting: SettingsService.Value<Theme.ColorSet?>
-	private let defaultSetKey: Theme.ColorKey
+	private let setting: SettingsService.Value<AccentOption?>
 	
-	public init(setting: SettingsService.Value<Theme.ColorSet?>, defaultSet: Theme.ColorKey) {
+	public init(setting: SettingsService.Value<AccentOption?>) {
 		self.setting = setting
-		self.defaultSetKey = defaultSet
 	}
 	
 	public var body: some View {
-		let colorSetSets: [[Theme.ColorSet]] = [
-			[
-				.init(base: .systemRed),
-				.init(base: .systemOrange),
-				.init(base: .systemYellow),
-				.init(base: .systemGreen),
-				.init(base: .systemMint),
-				.init(base: .systemTeal),
-				.init(base: .systemCyan),
-				.init(base: .systemBlue),
-				.init(base: .systemIndigo),
-				.init(base: .systemPurple),
-				.init(base: .systemPink),
-//				.init(base: .systemBrown)
-			], [
-				.init(base: .systemRedAdjusted),
-				.init(base: .systemOrangeAdjusted),
-				.init(base: .systemYellowAdjusted),
-				.init(base: .systemGreenAdjusted),
-				.init(base: .systemMintAdjusted),
-				.init(base: .systemTealAdjusted),
-				.init(base: .systemCyanAdjusted),
-				.init(base: .systemBlueAdjusted),
-				.init(base: .systemIndigoAdjusted),
-				.init(base: .systemPurpleAdjusted),
-				.init(base: .systemPinkAdjusted),
-//				.init(base: .systemBrownAdjusted)
-			], [
-				Theme.ColorKey.systemColorSet(for: .red),
-				Theme.ColorKey.systemColorSet(for: .orange),
-				Theme.ColorKey.systemColorSet(for: .yellow),
-				Theme.ColorKey.systemColorSet(for: .green),
-				Theme.ColorKey.systemColorSet(for: .mint),
-				Theme.ColorKey.systemColorSet(for: .teal),
-				Theme.ColorKey.systemColorSet(for: .cyan),
-				Theme.ColorKey.systemColorSet(for: .blue),
-				Theme.ColorKey.systemColorSet(for: .indigo),
-				Theme.ColorKey.systemColorSet(for: .purple),
-				Theme.ColorKey.systemColorSet(for: .pink),
-//				Theme.ColorKey.systemColorSet(for: .brown),
-			].compactMap({$0})
-		]
 		
-		ForEach(colorSetSets, id: \.self) { colorSets in
-			
-			ThemeHStack(spacing: .spacingElements) {
-				ForEach(colorSets) { colorSet in
-					
-					let isSelected = colorSet == (setting.value ?? theme.colorSet(for: defaultSetKey))
-					
-					let themeReplaced = theme.replacingValues(
-						colors: [
-							.accentColors : .colorSet(colorSet.base, complimentary: colorSet.complimentary, complementary: colorSet.complementary)
-						]
-					)
-					
-					ZStack {
-						Circle()
-							.theme(surface: .accentGradientBackground)
-							.environment(\.theme, themeReplaced)
-						if isSelected {
-							Circle()
-								.fill(.clear)
-								.stroke(Color.primary, lineWidth: theme.number(.strokeSelected, scaled: scaleFactor) ?? 2) // TODO: Theme View Modifier, choose correct color key
-						}
-					}
-					.onTapGesture {
-						setting.set(colorSet)
-					}
-					
-				}
-			}
-			.frame(maxWidth: Constants.widthMax, alignment: .center)
-			
-		}
+        StyleStack(.horizontal, spacing: \.spacingElements) {
+            ForEach(AccentOption.allCases, id: \.self) { option in
+                
+                // TODO: Identify default if no setting is available.
+                let isSelected = option == setting.value
+                
+                ZStack {
+                    StyleShapeView(shape: .circle, surface: \.accentGradientStrong)
+                        .style(accents: option.accentPair)
+                    
+                    if isSelected {
+                        Circle()
+                            .fill(.clear)
+                            .stroke(Color.primary, lineWidth: 2) // TODO: Width Value from generic line width NumberKey
+                    }
+                }
+                .onTapGesture {
+                    setting.set(option)
+                }
+                
+            }
+        }
+        .frame(maxWidth: Constants.widthMax, alignment: .center)
 		
 	}
 	
@@ -117,11 +64,7 @@ public struct AccentColorPicker: View {
 	
 	let settings = SettingsService()
 	
-	return ThemePreviewContainer(.view) {
-		
-		AccentColorPicker(setting: settings.value(.accentColor), defaultSet: .accentColors)
-		
-	}
+	return AccentColorPicker(setting: settings.value(.accent))
 	
 }
 

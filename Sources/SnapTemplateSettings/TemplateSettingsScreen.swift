@@ -31,8 +31,7 @@ public struct TemplateSettingsScreen: View {
 				
 				SettingsRow(title: "Accent Color") {
 					AccentColorPicker(
-						setting: settings.value(.accentColor),
-						defaultSet: .accentColors
+						setting: settings.value(.accent)
 					)
 					.frame(maxWidth: .infinity, alignment: .center)
 				}

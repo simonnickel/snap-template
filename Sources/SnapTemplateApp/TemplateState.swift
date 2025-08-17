@@ -26,7 +26,7 @@ public class TemplateState {
 	public var navigationLayout: NavigationLayout?
 	
 	/// Accent selected in Settings.
-	public var accentColor: Theme.ColorSet?
+    public var accent: AccentOption?
 	
 	/// The `Theme` applied to the AppContainer.
 	public var theme: Theme
@@ -95,29 +95,12 @@ public class TemplateState {
 	
 	private func setupAccentColor() {
 		// Apply change of settings to state. Handle Remote change. Also sets initial value.
-		settings.publisher(.accentColor)
+		settings.publisher(.accent)
 			.withWeak(self)
 			.sink { weakSelf, value in
-				weakSelf.accentColor = value
-				weakSelf.applyAccentColor()
+				weakSelf.accent = value
 			}
 			.store(in: &subscriptions)
-	}
-	
-	private func applyAccentColor() {
-		var theme = self.theme
-		
-		if let accentColorSelected = accentColor {
-			theme = theme.replacingValues(
-				colors: [
-					.accentColors : .colorSet(accentColorSelected.base, complimentary: accentColorSelected.complimentary, complementary: accentColorSelected.complementary)
-				]
-			)
-		} else if let color = theme.systemColor(for: .accentColorBase)?.value {
-			theme = theme.replaceAccent(base: color)
-		}
-		
-		self.theme = theme
 	}
 	
 }
