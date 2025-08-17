@@ -4,7 +4,6 @@
 //
 
 import SnapSettingsService
-import SnapTheme
 import SnapStyle
 
 public extension SettingsService.SettingDefinition {
