@@ -4,7 +4,6 @@
 //
 
 import SwiftUI
-import SnapTheme
 import SnapSettingsService
 import SnapDependencies
 
@@ -26,7 +25,9 @@ public struct ConfigureTabsScreen: View {
 			if let tabsSetting {
 				TabList(tabsSetting: tabsSetting, defaultConfiguration: defaultConfiguration)
 			} else {
-				ThemeEmptyDecorationView(text: "Tab Configuration not loaded")
+                Text("Empty")
+                // TODO:
+//				ThemeEmptyDecorationView(text: "Tab Configuration not loaded")
 			}
 		}
 		.onAppear() {

@@ -4,13 +4,11 @@
 //
 
 import SwiftUI
-import SnapTheme
+import SnapStyle
 
 // TODO: Image
 
 public struct SettingsHeaderSection: View {
-	
-	@Environment(\.theme) private var theme
 
 	public init(name: String, text: String) {
 		self.name = name
@@ -22,24 +20,23 @@ public struct SettingsHeaderSection: View {
 	
 	public var body: some View {
 		Section {
-			ThemeVStack(alignment: .leading, spacing: .spacingGroups) {
-				ThemeHStack(spacing: .spacingGroups) {
-					Circle()
-						.frame(width: 80)
-					ThemeVStack(alignment: .leading) {
-						Text("Hey 👋,")
-						Text(name)
-					}
-					.theme(text: .screenHeaderSubtitle)
-				}
-				Text(text)
-					.theme(text: .textBlock)
-			}
-			.listRowInsets(.zero)
-#if !os(macOS)
-			.theme(listRowBackground: .screen)
-#endif
-		}
+            EmptyView()
+        } header: {
+            StyleStack(spacing: \.spacingGroups, alignmentH: .leading) {
+                StyleStack(.horizontal, spacing: \.spacingGroups) {
+                    Circle()
+                        .frame(width: 80)
+                    StyleStack(alignmentH: .leading) {
+                        Text("Hey 👋,")
+                        Text(name)
+                    }
+                    .style(element: .title)
+                }
+                Text(text)
+                    .style(font: \.content)
+// TODO:                    .theme(text: .textBlock)
+            }
+        }
 	}
 	
 }

@@ -7,7 +7,7 @@ import SnapNavigation
 import SnapTemplateApp
 import SwiftUI
 
-// TODO: Settings on iPhone
+// TODO: Settings button default placement on iPhone
 
 @main
 struct SnapTemplateDemoApp: App {
@@ -27,15 +27,6 @@ struct SnapTemplateDemoApp: App {
 // MARK: - Preview
 
 #Preview {
-	
-	// TODO: Theme in Dependencies with .override
-//	let template = TemplateDependencies(templateState: .init(),
-//		theme: .baseApp.replacingValues(
-//			colors: [
-//				.accentColorBase: .color(.purple)
-//			]
-//		)
-//	)
 	
     SnapNavigationPreview(provider: AppNavigationProvider()) { window, content in
         content

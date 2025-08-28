@@ -3,7 +3,7 @@
 //  Created by Simon Nickel
 //
 
-import SnapTheme
+import Foundation
 
 public enum InterfaceScale: String, PickableSetting {
 	

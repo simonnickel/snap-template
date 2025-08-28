@@ -7,7 +7,6 @@ import Combine
 import SnapDependencies
 import SnapSettingsService
 import SnapTemplateSettings
-import SnapTheme
 import SnapStyle
 import SwiftUI
 
@@ -27,9 +26,6 @@ public class TemplateState {
 	
 	/// Accent selected in Settings.
     public var accent: AccentOption?
-	
-	/// The `Theme` applied to the AppContainer.
-	public var theme: Theme
     
     let style: SnapStyle = SnapStyle(
         configuration: .init(
@@ -37,8 +33,7 @@ public class TemplateState {
         )
     )
 	
-	public init(theme: Theme = .base) {
-		self.theme = theme
+	public init() {
 		setupDisplayMode()
 		setupInterfaceScale()
 		setupNavigationLayout()

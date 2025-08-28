@@ -10,17 +10,17 @@ import SnapSettingsService
 
 public enum TemplateSettingsDestination: SnapNavigationDestination {
 	
-	case screen
-	case tabs
+	case settingsScreen
+	case tabConfiguration
 
 	public var definition: SnapNavigation.ScreenDefinition {
 		switch self {
-            case .screen: .init(title: "Rectangle", icon: \SnapStyle.IconKey.settings, style: .modal) { TemplateSettingsScreen() }
-			case .tabs: .init(title: "Configure Tabs", icon: \SnapStyle.IconKey.settingsTabs) {
+            case .settingsScreen: .init(title: "Settings", icon: \SnapStyle.IconKey.settings, style: .modal) { TemplateSettingsScreen() }
+			case .tabConfiguration: .init(title: "Configure Tabs", icon: \SnapStyle.IconKey.settingsTabs) {
 				
 				// TODO: Inject default config, e.g. by defining a SnapNavigationScreen as generic.
 //				static var tabConfigDefault: TabConfiguration { TabConfiguration(tabs: AppDestination.tabsAvailable.configArray, required: AppDestination.tabsRequired.configSet, disabled: AppDestination.tabsDisabledByDefault.configSet, initial: AppDestination.initial.configTab) }
-				ConfigureTabsScreen(defaultConfiguration: .init(tabs: [], required: [], disabled: [], initial: nil))
+                ConfigureTabsScreen(defaultConfiguration: .init(tabs: [], required: [], disabled: [], initial: nil))
 			}
 		}
 	}

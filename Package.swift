@@ -21,7 +21,6 @@ let package = Package(
 		.package(url: "https://github.com/simonnickel/snap-dependencies.git", branch: "main"),
 		.package(url: "https://github.com/simonnickel/snap-navigation.git", branch: "main"),
 		.package(url: "https://github.com/simonnickel/snap-settings-service.git", branch: "main"),
-        .package(url: "https://github.com/simonnickel/snap-theme.git", branch: "main"),
 		.package(url: "https://github.com/simonnickel/snap-style.git", branch: "main"),
 	],
     targets: [
@@ -35,7 +34,6 @@ let package = Package(
                 .product(name: "SnapDependencies", package: "snap-dependencies"),
                 .product(name: "SnapNavigation", package: "snap-navigation"),
                 .product(name: "SnapSettingsService", package: "snap-settings-service"),
-                .product(name: "SnapTheme", package: "snap-theme"),
                 .product(name: "SnapStyle", package: "snap-style"),
             ]
         ),
@@ -47,7 +45,6 @@ let package = Package(
                 .product(name: "SnapDependencies", package: "snap-dependencies"),
                 .product(name: "SnapNavigation", package: "snap-navigation"),
                 .product(name: "SnapSettingsService", package: "snap-settings-service"),
-                .product(name: "SnapTheme", package: "snap-theme"),
                 .product(name: "SnapStyle", package: "snap-style"),
             ]
         ),

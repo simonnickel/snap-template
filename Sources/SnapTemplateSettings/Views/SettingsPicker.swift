@@ -4,9 +4,9 @@
 //
 
 import SwiftUI
-import SnapTheme
 import SnapSettingsService
 import SnapDependencies
+import SnapStyle
 
 public protocol PickableSetting: Identifiable, Codable, Hashable, Sendable, CaseIterable where AllCases == Array<Self> {
 	
@@ -26,19 +26,10 @@ public struct SettingsPicker<Setting: PickableSetting>: View {
 	}
 	
 	public var body: some View {
-		
-		// TODO: ThemePickerSegmented
-		Picker(selection: setting.binding) {
-			ForEach(Setting.allCases) { option in
-				Text(option.title)
-					.tag(option)
-			}
-		} label: {
-			// Label is only displayed on macOS.
-			Text(Setting.title)
-				.frame(maxWidth: .infinity, alignment: .leading)
-		}
-		.pickerStyle(.segmented)
+        
+        StyleListRow(.pick(Setting.allCases, selection: setting.binding)) {
+            Text(Setting.title)
+        }
 		
 	}
 	

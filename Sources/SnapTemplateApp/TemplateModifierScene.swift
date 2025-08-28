@@ -21,7 +21,6 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 	
 	public func body(content: Content) -> some View {
 		content
-            .theme(apply: templateState.theme) // TODO: Check if updates are propagated.
         
             // SnapStyle
             .style(setup: templateState.style)

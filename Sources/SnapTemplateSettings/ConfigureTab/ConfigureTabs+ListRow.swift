@@ -5,7 +5,7 @@
 
 import SwiftUI
 import SnapCore
-import SnapTheme
+import SnapStyle
 import SnapSettingsService
 
 extension ConfigureTabsScreen {
@@ -18,24 +18,25 @@ extension ConfigureTabsScreen {
 		
 		@State private var isOn: Bool = false
 		@State private var isRequired: Bool = false
+        /// `false` if the tab will not be visible in the tab bar.
 		@State private var isVisibleInTabBar: Bool = false
 		
 		var body: some View {
 			
 			Group {
 				if isRequired {
-					ThemeLabel(text: tab.name, icon: tab.icon, style: .themeListRow())
+                    StyleLabel(tab.name, systemImage: tab.icon)
 				} else {
 					// TODO: Haptic Feedback on label tap
 					ToggleTapable(isOn: $isOn) {
-						ThemeLabel(text: tab.name, icon: tab.icon, style: .themeListRow())
+                        StyleLabel(tab.name, systemImage: tab.icon)
 					}
 				}
 			}
-			.if(!isVisibleInTabBar) { view in
-				view.theme(color: .foregroundDisabled)
-			}
-			.themeListRow()
+            // TODO: set disabled style
+//            .if(!isVisibleInTabBar) { view in
+//				view.theme(color: .foregroundDisabled)
+//			}
 			.onChange(of: isOn) { oldValue, newValue in
 				let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
 				var disabled = configuration.disabled

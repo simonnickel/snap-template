@@ -8,20 +8,23 @@ import Foundation
 import UIKit
 #endif
 import SnapCore
-import SnapTheme
+import SnapStyle
 
 public struct TabConfiguration: Codable, Equatable, Hashable, Sendable {
 	
 	public struct Tab: Identifiable, Codable, Equatable, Hashable, Sendable {
 		
 		public let id: String
-		public let name: String?
-		public let icon: Theme.IconKey?
+		public let name: String
+        // TODO: Does not conform to Codable and Sendable
+//        public let icon: SnapStyle.IconKey.ValueBuilderKeyPath?
+        
+        public var icon: String { "star" }
 
-		public init(id: String, name: String? = nil, icon: Theme.IconKey? = nil) {
+		public init(id: String, name: String, icon: SnapStyle.IconKey.ValueBuilderKeyPath? = nil) {
 			self.id = id
 			self.name = name
-			self.icon = icon
+//			self.icon = icon
 		}
 		
 	}

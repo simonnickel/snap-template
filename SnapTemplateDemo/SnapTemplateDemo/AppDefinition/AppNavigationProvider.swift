@@ -13,7 +13,7 @@ struct AppNavigationProvider: SnapNavigationProvider {
 	func initial(for scene: SnapNavigation.Window<Destination>.Initializable) -> Destination {
 		switch scene {
 			case .main: .triangle
-			case .settings: .settingsTemplate(.screen)
+			case .settings: .settingsTemplate(.settingsScreen)
 		}
 	}
 	

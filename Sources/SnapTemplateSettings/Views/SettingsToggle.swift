@@ -5,10 +5,10 @@
 
 import SwiftUI
 import SnapCore
-import SnapTheme
 import SnapSettingsService
 import SnapDependencies
 
+// TODO: Necessary?
 public struct SettingsToggle: View {
 		
 	@Dependency(\.settingsService) private var settings

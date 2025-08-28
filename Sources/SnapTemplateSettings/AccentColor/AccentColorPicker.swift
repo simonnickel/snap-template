@@ -16,7 +16,7 @@ public struct AccentColorPicker: View {
 		static let widthMax: CGFloat = 550
 	}
 	
-	@Environment(\.theme) private var theme
+    // TODO: What was this used for?
 	@ScaledMetric private var scaleFactor: CGFloat = 1
 	
 	@Dependency(\.settingsService) private var settings

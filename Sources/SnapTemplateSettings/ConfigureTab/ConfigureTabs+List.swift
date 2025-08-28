@@ -4,7 +4,7 @@
 //
 
 import SwiftUI
-import SnapTheme
+import SnapStyle
 import SnapSettingsService
 
 extension ConfigureTabsScreen {
@@ -20,7 +20,7 @@ extension ConfigureTabsScreen {
 		}
 		
 		var body: some View {
-			ThemeSceneSettings {
+			StyleScreen {
 				
 				Section {
 					ForEach(tabs) { tab in
@@ -39,7 +39,8 @@ extension ConfigureTabsScreen {
 					}
 				} footer: {
 					// TODO Localization
-					ThemeLabel(text: "First 5 tabs are displayed.", style: .themeSectionFooter)
+					StyleLabel("First 5 tabs are displayed.")
+                        .style(element: .label) // TODO: .footnote? / .info
 				}
 				
 				Section {
@@ -60,9 +61,11 @@ extension ConfigureTabsScreen {
 				
 				if tabsSetting.value != nil && tabsSetting.value != defaultConfiguration {
 					// TODO Localization
-					ThemeListButton(text: "Reset") {
-						tabsSetting.set(nil)
-					}
+                    StyleButton {
+                        tabsSetting.set(nil)
+                    } content: {
+                        Text("Reset") // TODO: Styling
+                    }
 				}
 				
 			}
