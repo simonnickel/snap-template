@@ -35,6 +35,11 @@ enum AppDestination: SnapNavigationDestination {
 		}
 	}
 	
+    
+    // MARK: Identifiable
+    
+    var id: Self { self }
+    
 	
 	// MARK: Definition Overrides
 

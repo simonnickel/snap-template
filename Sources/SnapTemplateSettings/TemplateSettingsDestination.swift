@@ -11,7 +11,7 @@ import SnapSettingsService
 public enum TemplateSettingsDestination: SnapNavigationDestination {
 	
 	case settingsScreen
-	case tabConfiguration
+    case tabConfiguration
 
 	public var definition: SnapNavigation.ScreenDefinition {
 		switch self {
@@ -24,7 +24,12 @@ public enum TemplateSettingsDestination: SnapNavigationDestination {
 			}
 		}
 	}
-	
+    
+    
+    // MARK: Identifiable
+    
+    public var id: Self { self }
+    
 	
 	// MARK: Definition Overrides
 

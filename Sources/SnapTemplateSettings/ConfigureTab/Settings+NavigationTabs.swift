@@ -7,6 +7,6 @@ import SnapSettingsService
 
 public extension SettingsService.SettingDefinition {
 	
-	static let navigationTabs = SettingsService.Setting<TabConfiguration?>("Settings.Appearance.navigationTabs", in: .defaults, default: nil)
+    static let navigationTabs = SettingsService.Setting<TabConfiguration?>("Settings.Appearance.navigationTabs", in: .defaults, default: nil)
 	
 }
