@@ -9,13 +9,10 @@ import SnapDependencies
 
 public struct ConfigureTabsScreen: View {
 	
-	@Dependency(\.settingsService) private var settings
+    @Dependency(\.settingsService) private var settings
+    @Dependency(\.tabConfigurationDefault) private var tabConfigurationDefault
 
-	private let defaultConfiguration: TabConfiguration
-
-	public init(defaultConfiguration: TabConfiguration) {
-		self.defaultConfiguration = defaultConfiguration
-	}
+	public init() {}
 	
 	@State private var tabsSetting: SettingsService.Value<TabConfiguration?>?
 	
@@ -23,7 +20,7 @@ public struct ConfigureTabsScreen: View {
 		
 		Group {
 			if let tabsSetting {
-				TabList(tabsSetting: tabsSetting, defaultConfiguration: defaultConfiguration)
+				TabList(tabsSetting: tabsSetting, defaultConfiguration: tabConfigurationDefault)
 			} else {
                 Text("Empty")
                 // TODO:
@@ -42,18 +39,19 @@ public struct ConfigureTabsScreen: View {
 // MARK: - Previews
 
 #Preview {
+    let tab1 = TabConfiguration.Tab(id: "Tab1", name: "Tab1", icon: nil)
+    let tab2 = TabConfiguration.Tab(id: "Tab2", name: "Tab2", icon: nil)
+    
+    Dependencies.override(\.tabConfigurationDefault) {
+        TabConfiguration(
+            tabs: [tab1, tab2],
+            required: [],
+            disabled: [],
+            initial: tab1
+        )
+    }
 	
-	let tab1 = TabConfiguration.Tab(id: "Tab1", name: "Tab1", icon: nil)
-	
-	let configuration = TabConfiguration(
-		tabs: [tab1],
-		required: [],
-		disabled: [],
-		initial: tab1
-	)
-	return ConfigureTabsScreen(
-		defaultConfiguration: configuration
-	)
-	.environment(\.serviceSettings, SettingsService())
+	return ConfigureTabsScreen()
+        .environment(\.serviceSettings, SettingsService())
 	
 }

@@ -3,7 +3,9 @@
 //  Created by Simon Nickel
 //
 
+import SnapDependencies
 import SnapNavigation
+import SnapSettingsService
 import SnapTemplateSettings
 
 struct AppNavigationProvider: SnapNavigationProvider {
@@ -12,22 +14,16 @@ struct AppNavigationProvider: SnapNavigationProvider {
 	
 	func initial(for scene: SnapNavigation.Window<Destination>.Initializable) -> Destination {
 		switch scene {
-			case .main: .triangle
+            case .main: tabConfigurationInitial ?? .circle
 			case .settings: .settingsTemplate(.settingsScreen)
 		}
 	}
+    
+    static let rootDestinationOptions: [Destination] = [.triangle, .rectangle, .circle]
 	
-	func selectableDestinations(for scene: SnapNavigation.Window<Destination>) -> [Destination] {
-		switch scene {
-			case .main: [.triangle, .rectangle, .circle]
-			case .window(_, let configuration):
-                if configuration.style != .single, configuration.shouldBuildRoute {
-					selectableDestinations(for: .main)
-				} else {
-					[]
-				}
-			case .settings: []
-		}
+	func rootDestinations(for scene: SnapNavigation.Window<Destination>) -> [Destination] {
+        // Customize if necessary.
+        templateDefaultRootDestinations(for: scene)
 	}
 	
 	func parent(of destination: Destination) -> Destination? {
@@ -40,6 +36,7 @@ struct AppNavigationProvider: SnapNavigationProvider {
 	
 	func translate(_ destination: any SnapNavigationDestination) -> AppDestination? {
 		switch destination {
+
 			case let destination as AppDestination: destination
 			
 			case let destination as TemplateSettingsDestination: .settingsTemplate(destination)
@@ -47,4 +44,22 @@ struct AppNavigationProvider: SnapNavigationProvider {
 			default: nil
 		}
 	}
+}
+
+
+// MARK: - Tab Configuration
+
+extension AppNavigationProvider {
+    
+    // TODO: What happens if I have a configuration, but a new tab is introduced later?
+    
+    /// The default tab configuration.
+    /// Defined here and set as `\.tabConfigurationDefault` in Dependencies to use in SnapTemplateSettings.
+    static let tabConfigurationDefault = TabConfiguration(
+        tabs: rootDestinationOptions.map { $0.tab },
+        required: [AppDestination.triangle.tab],
+        disabled: [],
+        initial: AppDestination.rectangle.tab
+    )
+
 }

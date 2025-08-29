@@ -4,6 +4,7 @@
 //
 
 import SnapDependencies
+import SnapTemplateSettings
 
 
 // MARK: - App Dependencies
@@ -29,7 +30,12 @@ extension Dependencies: @retroactive DependencyForwardingFactory {
 		switch keyPath {
 			
 			/// KeyPath `\.service` is defined in package, Implementation `Service()` is in project.
-			// case \.service: Service() as? Dependency
+            // case \.service: Service() as? Dependency
+                
+            
+            // MARK: Template Dependencies
+            
+            case \.tabConfigurationDefault: AppNavigationProvider.tabConfigurationDefault as? Dependency
 				
 			default: nil
 
