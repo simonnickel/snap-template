@@ -23,7 +23,7 @@ public struct ConfigureTabsScreen: View {
 				TabList(tabsSetting: tabsSetting, defaultConfiguration: tabConfigurationDefault)
 			} else {
                 Text("Empty")
-                // TODO:
+                // TODO: Generic Empty / Error View
 //				ThemeEmptyDecorationView(text: "Tab Configuration not loaded")
 			}
 		}

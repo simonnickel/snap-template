@@ -27,7 +27,7 @@ public struct SettingsPicker<Setting: PickableSetting>: View {
 	
 	public var body: some View {
         
-        StyleListRow(.pick(Setting.allCases, selection: setting.binding)) {
+        StyleListRow(.pick(Setting.allCases, titleKeyPath: \.title, selection: setting.binding)) {
             Text(Setting.title)
         }
 		

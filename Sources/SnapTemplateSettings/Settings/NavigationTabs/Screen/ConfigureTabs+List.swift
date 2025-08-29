@@ -20,7 +20,7 @@ extension ConfigureTabsScreen {
 		}
 		
 		var body: some View {
-			StyleScreen {
+			StyleList {
 				
 				Section {
 					ForEach(tabs) { tab in
@@ -39,10 +39,13 @@ extension ConfigureTabsScreen {
 					}
 				} footer: {
 					// TODO Localization
+                    // TODO: .footnote? / .info / .footer
+                    // TODO: inset
 					StyleLabel("First 5 tabs are displayed.")
-                        .style(element: .label) // TODO: .footnote? / .info
+                        .style(element: .label)
 				}
 				
+                // TODO: When initial selection no longer is available -> choose one of the existing ones.
 				Section {
 					let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
 					let options = configuration.tabs
@@ -50,21 +53,25 @@ extension ConfigureTabsScreen {
 							configuration.isVisible(tab)
 						})
 					if let initial = configuration.initial ?? defaultConfiguration.initial ?? options.first {
-						InitialTabPicker(
-							options: options,
-							selected: initial,
-							tabsSetting: tabsSetting,
-							defaultConfiguration: defaultConfiguration
-						)
+                        InitialTabPickerRow(
+                            options: options,
+                            selected: initial,
+                            tabsSetting: tabsSetting,
+                            defaultConfiguration: defaultConfiguration
+                        )
 					}
 				}
 				
 				if tabsSetting.value != nil && tabsSetting.value != defaultConfiguration {
 					// TODO Localization
-                    StyleButton {
-                        tabsSetting.set(nil)
-                    } content: {
-                        Text("Reset") // TODO: Styling
+                
+                    // TODO: Styling as .action or as no background and button inside.
+                    StyleListRow {
+                        StyleButton {
+                            tabsSetting.set(nil)
+                        } content: {
+                            Text("Reset") // TODO: Styling
+                        }
                     }
 				}
 				

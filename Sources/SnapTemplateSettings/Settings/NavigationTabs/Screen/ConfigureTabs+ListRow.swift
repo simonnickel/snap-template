@@ -23,7 +23,7 @@ extension ConfigureTabsScreen {
 		
 		var body: some View {
 			
-			Group {
+			StyleListRow {
 				if isRequired {
                     StyleLabel(tab.name, systemImage: tab.icon)
 				} else {
