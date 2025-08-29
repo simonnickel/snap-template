@@ -18,6 +18,8 @@ extension ConfigureTabsScreen {
 			let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
 			return configuration.tabs
 		}
+        
+        @State private var showResetButton: Bool = true
 		
 		var body: some View {
 			StyleList {
@@ -60,22 +62,29 @@ extension ConfigureTabsScreen {
                             defaultConfiguration: defaultConfiguration
                         )
 					}
-				}
-				
-				if tabsSetting.value != nil && tabsSetting.value != defaultConfiguration {
-					// TODO Localization
+                }
                 
-                    // TODO: Styling as .action or as no background and button inside.
-                    StyleListRow {
-                        StyleButton {
-                            tabsSetting.set(nil)
-                        } content: {
-                            Text("Reset") // TODO: Styling
+                Section { } footer: {
+                    if showResetButton {
+                        StyleStack(.horizontal, spacing: \.spacingElements, alignmentH: .center) {
+                            // TODO: Destructive style
+                            StyleButton {
+                                tabsSetting.set(nil)
+                            } content: {
+                                // TODO Localization
+                                StyleLabel("Reset", icon: \.reset)
+                            }
                         }
+                        .transition(.opacity)
                     }
-				}
+                }
 				
 			}
+            .onChange(of: tabsSetting.value, initial: true) { oldValue, newValue in
+                withAnimation {
+                    showResetButton = newValue != nil && newValue != defaultConfiguration
+                }
+            }
 #if !os(macOS) // TODO macOS
 			.environment(\.editMode, .constant(.active))
 #endif
