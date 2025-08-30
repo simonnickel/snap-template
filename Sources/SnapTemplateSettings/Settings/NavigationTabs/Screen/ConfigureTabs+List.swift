@@ -72,7 +72,13 @@ extension ConfigureTabsScreen {
                                 tabsSetting.set(nil)
                             } content: {
                                 // TODO Localization
-                                StyleLabel("Reset", icon: \.reset)
+                                StyleLabel(icon: \.reset) {
+                                    StyleStack {
+                                        Text("Reset")
+                                        Text("Restore default configuration")
+                                            .style(hierarchy: .secondary)
+                                    }
+                                }
                             }
                         }
                         .transition(.opacity)
