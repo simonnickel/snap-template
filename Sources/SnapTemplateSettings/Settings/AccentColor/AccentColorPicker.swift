@@ -37,8 +37,10 @@ public struct AccentColorPicker: View {
                 
                 ZStack {
                     StyleShapeView(shape: .circle, surface: \.accentGradientStrong)
-                        .style(accent: option.accentPair.0, for: \.primary)
-                        .style(accent: option.accentPair.1, for: \.secondary)
+                        .style(accents: [
+                            \.primary: option.accentPair.0,
+                            \.secondary: option.accentPair.1,
+                        ])
                     
                     if isSelected {
                         Circle()

@@ -1,5 +1,5 @@
 {
-  "originHash" : "4e77c0cb190469a8c2dc0d06d7ba667b3b18c6580de20d6a19440091fccd5698",
+  "originHash" : "9f8efca74d05e649c7e9e50b5b24711e1044c694c39b061ca5f49361d63cca3c",
   "pins" : [
     {
       "identity" : "snap-core",
@@ -52,7 +52,7 @@
       "location" : "https://github.com/simonnickel/snap-style",
       "state" : {
         "branch" : "main",
-        "revision" : "cd88a10f4d07484245977ac847c7cee577a8b4bb"
+        "revision" : "fd2f132a6bbe03d1a3b183ae192a245047d96dc1"
       }
     },
     {

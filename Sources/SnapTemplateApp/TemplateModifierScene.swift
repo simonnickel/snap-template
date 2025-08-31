@@ -23,8 +23,10 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 		content
         
             // SnapStyle
-            .style(accent: templateState.accentPrimary ?? .fallbackPrimary, for: \.primary)
-            .style(accent: templateState.accentSecondary ?? .fallbackSecondary, for: \.secondary)
+            .style(accents: [
+                \.primary: templateState.accentPrimary ?? .fallbackPrimary,
+                \.secondary: templateState.accentSecondary ?? .fallbackSecondary,
+            ])
             .style(scaleFactor: templateState.interfaceScale?.scale)
             .style(setup: templateState.style)
         
