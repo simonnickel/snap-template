@@ -24,8 +24,10 @@ public class TemplateState {
 	// TODO: Adapt navigation layout options in SnapNavigation.
 	public var navigationLayout: NavigationLayout?
 	
-	/// Accent selected in Settings.
-    public var accent: AccentOption?
+    /// Primary accent selected in Settings.
+    public var accentPrimary: SnapStyle.AccentKey.Value.WrappedValue?
+    /// Secondary accent selected in Settings.
+    public var accentSecondary: SnapStyle.AccentKey.Value.WrappedValue?
     
     let style: SnapStyle = SnapStyle(
         configuration: .init(
@@ -93,7 +95,8 @@ public class TemplateState {
 		settings.publisher(.accent)
 			.withWeak(self)
 			.sink { weakSelf, value in
-				weakSelf.accent = value
+                weakSelf.accentPrimary = value?.accentPair.0
+                weakSelf.accentSecondary = value?.accentPair.1
 			}
 			.store(in: &subscriptions)
 	}

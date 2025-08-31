@@ -23,9 +23,10 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 		content
         
             // SnapStyle
-            .style(setup: templateState.style)
-            .style(accents: templateState.accent?.accentPair ?? .fallback)
+            .style(accent: templateState.accentPrimary ?? .fallbackPrimary, for: \.primary)
+            .style(accent: templateState.accentSecondary ?? .fallbackSecondary, for: \.secondary)
             .style(scaleFactor: templateState.interfaceScale?.scale)
+            .style(setup: templateState.style)
         
             // Settings
             .navigationStyle(window == .main ? .tabsAdaptable : nil) // TODO: Style from settings

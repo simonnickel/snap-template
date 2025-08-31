@@ -25,23 +25,23 @@ public enum AccentOption: Codable, CaseIterable, Sendable {
     case indigoFallbackAlternative
     case fallbackFallbackAlternative
     
-    public var accentPair: SnapStyle.Accent.Pair {
+    public var accentPair: (SnapStyle.AccentKey.Value.WrappedValue, SnapStyle.AccentKey.Value.WrappedValue) {
         switch self {
-            case .blueFallbackAlternative: .init(.blue, .fallbackAlternative)
-            case .blueYellow: .init(.blue, .yellow)
-            case .greenFallbackAlternative: .init(.green, .fallbackAlternative)
-            case .greenCyan: .init(.green, .cyan)
-            case .tealFallbackAlternative: .init(.teal, .fallbackAlternative)
-            case .tealYellow: .init(.teal, .yellow)
-            case .redFallbackAlternative: .init(.red, .fallbackAlternative)
-            case .redYellow: .init(.red, .yellow)
-            case .orangeFallbackAlternative: .init(.orange, .fallbackAlternative)
-            case .yellowFallbackAlternative: .init(.yellow, .fallbackAlternative)
-            case .mintFallbackAlternative: .init(.mint, .fallbackAlternative)
-            case .cyanFallbackAlternative: .init(.cyan, .fallbackAlternative)
-            case .purpleFallbackAlternative: .init(.purple, .fallbackAlternative)
-            case .indigoFallbackAlternative: .init(.indigo, .fallbackAlternative)
-            case .fallbackFallbackAlternative: .init(.fallback, .fallbackAlternative)
+            case .blueFallbackAlternative: (.blue, .fallbackSecondary)
+            case .blueYellow: (.blue, .yellow)
+            case .greenFallbackAlternative: (.green, .fallbackSecondary)
+            case .greenCyan: (.green, .cyan)
+            case .tealFallbackAlternative: (.teal, .fallbackSecondary)
+            case .tealYellow: (.teal, .yellow)
+            case .redFallbackAlternative: (.red, .fallbackSecondary)
+            case .redYellow: (.red, .yellow)
+            case .orangeFallbackAlternative: (.orange, .fallbackSecondary)
+            case .yellowFallbackAlternative: (.yellow, .fallbackSecondary)
+            case .mintFallbackAlternative: (.mint, .fallbackSecondary)
+            case .cyanFallbackAlternative: (.cyan, .fallbackSecondary)
+            case .purpleFallbackAlternative: (.purple, .fallbackSecondary)
+            case .indigoFallbackAlternative: (.indigo, .fallbackSecondary)
+            case .fallbackFallbackAlternative: (.fallbackPrimary, .fallbackSecondary)
         }
     }
 
