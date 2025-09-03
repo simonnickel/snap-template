@@ -23,13 +23,16 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 		content
         
             // SnapStyle
-            .style(accents: [
-                \.primary: templateState.accentPrimary ?? .fallbackPrimary,
-                \.secondary: templateState.accentSecondary ?? .fallbackSecondary,
-            ])
+            .style(accent: \.primary)
+            .styleOverride(
+                accents: [
+                    \.primary: .base(.definition(.value(templateState.accentPrimary ?? .fallbackPrimary))),
+                    \.secondary: .base(.definition(.value(templateState.accentSecondary ?? .fallbackSecondary))),
+                ]
+            )
             .style(scaleFactor: templateState.interfaceScale?.scale)
-            .style(setup: templateState.style)
-        
+            .styleSetup(templateState.style)
+
             // Settings
             .navigationStyle(window == .main ? .tabsAdaptable : nil) // TODO: Style from settings
 			.preferredColorScheme(templateState.displayMode?.colorScheme)
