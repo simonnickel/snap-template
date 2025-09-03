@@ -7,7 +7,7 @@ import SnapDependencies
 import SnapNavigation
 import SnapSettingsService
 import SnapTemplateUtil
-import SnapTheme
+import SnapStyle
 import SwiftUI
 
 // TODO Localization
@@ -18,57 +18,52 @@ public struct TemplateSettingsScreen: View {
 	
 	@Dependency(\.settingsService) private var settings
 	
-	// TODO: Does not work anymore. See comment below
-	private let navSelectionState = ListNavState<TemplateSettingsDestination>()
-	
 	public var body: some View {
-			
-		ThemeSceneSettings(title: "Settings") {
-			
-			SettingsHeaderSection(name: "I am Simon Nickel", text: "I hope you enjoy using this template as much as I do enjoy creating it!")
-			
-			Section {
-				
-				SettingsRow(title: "Accent Color") {
-					AccentColorPicker(
-						setting: settings.value(.accentColor),
-						defaultSet: .accentColors
-					)
-					.frame(maxWidth: .infinity, alignment: .center)
-				}
-				
-				SettingsRow(title: DisplayMode.title) {
-					SettingsPicker(setting: settings.value(.displayMode))
-				}
-				
-				SettingsRow(title: InterfaceScale.title) {
-					SettingsPicker(setting: settings.value(.interfaceScale))
-				}
-				
-			} header: {
-				ThemeLabel(text: "Appearance", style: .themeSectionHeader())
-			}
-			
-			Section {
-				
-				SettingsRow(title: NavigationLayout.title) {
-					SettingsPicker(setting: settings.value(.navigationLayout))
-				}
-				
-                NavigationListRow(destination: TemplateSettingsDestination.tabs)
-
-				ThemeListRowNavigationLink(value: TemplateSettingsDestination.tabs, state: navSelectionState) {
-					ThemeLabel(text: "Configure Tab Bar", style: .themeListRow())
-				}
-				
-			} header: {
-				ThemeLabel(text: "Navigation", style: .themeSectionHeader())
-			}
-			
-		}
-		
-	}
-	
+        StyleList {
+            
+            SettingsHeaderSection(name: "I am Simon Nickel", text: "I hope you enjoy using this template as much as I enjoy creating it!")
+            
+            Section {
+                
+                StyleListRow(
+                    title: {
+                        Text("Accent Color")
+                    },
+                    content: {
+                        AccentColorPicker(
+                            setting: settings.value(.accent)
+                        )
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                )
+                
+                // TODO: Segmented instead of Picker?
+                
+                SettingsPicker(setting: settings.value(.displayMode))
+                
+                SettingsPicker(setting: settings.value(.interfaceScale))
+                
+            } header: {
+                Text("Appearance")
+                    .styleListSectionHeaderLabel()
+            }
+            
+            Section {
+                
+                SettingsPicker(setting: settings.value(.navigationLayout))
+                
+                NavigationListRow(destination: TemplateSettingsDestination.tabConfiguration)
+                
+            } header: {
+                Text("Navigation")
+                    .styleListSectionHeaderLabel()
+            }
+            
+        }
+        .navigationTitle("Settings") // TODO: Part of Navigation / Screen definition?
+        
+    }
+    
 }
 
 

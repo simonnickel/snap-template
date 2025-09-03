@@ -4,9 +4,10 @@
 //
 
 import SnapSettingsService
+import SnapStyle
 
 public extension SettingsService.SettingDefinition {
-	
-	static let navigationTabs = SettingsService.Setting<TabConfiguration?>("Settings.Appearance.navigationTabs", in: .defaults, default: nil)
+    
+    public static let accent = SettingsService.Setting<AccentOption?>("Settings.Appearance.accent", in: .ubiquitous, default: nil)
 	
 }

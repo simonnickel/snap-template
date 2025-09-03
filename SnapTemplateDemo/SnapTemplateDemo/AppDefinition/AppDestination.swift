@@ -5,7 +5,7 @@
 
 import SnapNavigation
 import SnapTemplateSettings
-import SnapTheme
+import SnapStyle
 import SwiftUI
 
 enum AppDestination: SnapNavigationDestination {
@@ -22,26 +22,30 @@ enum AppDestination: SnapNavigationDestination {
 
 	var definition: SnapNavigation.ScreenDefinition {
 		switch self {
-			case .rectangle: .init(title: "Rectangle", icon: Theme.IconKey.navGroupRectangle)
-			case .rectangleA: .init(title: "Rectangle A", icon: Theme.IconKey.navGroupRectangle)
-			case .rectangleB: .init(title: "Rectangle B", icon: Theme.IconKey.navGroupRectangle)
+            case .rectangle: .init(title: "Rectangle", icon: \SnapStyle.IconKey.navGroupRectangle)
+			case .rectangleA: .init(title: "Rectangle A", icon: \SnapStyle.IconKey.navGroupRectangle)
+			case .rectangleB: .init(title: "Rectangle B", icon: \SnapStyle.IconKey.navGroupRectangle)
 				
-			case .circle: .init(title: "Circle", icon: Theme.IconKey.navGroupCircle)
-			case .circleA: .init(title: "Circle A", icon: Theme.IconKey.navGroupCircle)
+			case .circle: .init(title: "Circle", icon: \SnapStyle.IconKey.navGroupCircle)
+			case .circleA: .init(title: "Circle A", icon: \SnapStyle.IconKey.navGroupCircle)
 				
-			case .triangle: .init(title: "Triangle", icon: Theme.IconKey.navGroupTriangle)
+			case .triangle: .init(title: "Triangle", icon: \SnapStyle.IconKey.navGroupTriangle)
 			
 			case .settingsTemplate(let destination): destination.definition
 		}
 	}
 	
+    
+    // MARK: Identifiable
+    
+    var id: Self { self }
+    
 	
 	// MARK: Definition Overrides
 
 	@MainActor
 	var label: any View {
-		let icon = definition.icon as? Theme.IconKey
-		return ThemeLabel(text: definition.title, icon: icon)
+		StyleLabel(definition.title, icon: icon)
 	}
 	
 	@MainActor

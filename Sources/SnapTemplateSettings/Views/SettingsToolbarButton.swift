@@ -6,7 +6,7 @@
 import SwiftUI
 import SnapDependencies
 import SnapNavigation
-import SnapTheme
+import SnapStyle
 
 public struct ToolbarButtonSettings: View {
 	
@@ -16,16 +16,12 @@ public struct ToolbarButtonSettings: View {
 	
 	public var body: some View {
 		
-		Button {
-			navigator(.present(TemplateSettingsDestination.screen))
-		} label: {
-			ThemeLabel(
-				text: "Settings",
-				icon: .settings
-			)
-		}
-		.buttonStyle(.themeSidebarBottom)
-		.theme(padding: .spacingSections, .horizontal)
+        // TODO: Toolbar Style / Variant
+        StyleButton {
+            navigator(.present(TemplateSettingsDestination.settingsScreen))
+        } content: {
+            StyleLabel("Settings", icon: \.settings)
+        }
 
 	}
 	

@@ -6,11 +6,11 @@
 import SwiftUI
 import SnapCore
 import SnapSettingsService
-import SnapTheme
+import SnapStyle
 
 extension ConfigureTabsScreen {
 	
-	struct InitialTabPicker: View {
+	struct InitialTabPickerRow: View {
 		
 		let options: [TabConfiguration.Tab]
 		@State var selected: TabConfiguration.Tab
@@ -18,17 +18,11 @@ extension ConfigureTabsScreen {
 		let defaultConfiguration: TabConfiguration
 		
 		public var body: some View {
-			// TODO FB12181540: Should be able to apply color and font to Picker.
-			PickerTapable(selection: $selected) {
-				ForEach(options) { tab in
-					ThemeLabel(text: tab.name, icon: tab.icon)
-						.tag(tab)
-				}
-			} label: {
-				// TODO Localization
-				ThemeLabel(text: "Initial Tab", style: .themeListRow())
-			}
-			.themeListRow()
+            // TODO FB12181540: Should be able to apply color and font to Picker.
+            StyleListRow(.pick(options, titleKeyPath: \.name, selection: $selected), title: {
+                // TODO Localization
+                Text("Initial Tab")
+            })
 			.onChange(of: selected) { oldValue, newValue in
 				let configuration = tabsSetting.value ?? defaultConfiguration
 				tabsSetting.set(configuration.updated(initial: newValue))

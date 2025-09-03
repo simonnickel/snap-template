@@ -21,7 +21,7 @@ let package = Package(
 		.package(url: "https://github.com/simonnickel/snap-dependencies.git", branch: "main"),
 		.package(url: "https://github.com/simonnickel/snap-navigation.git", branch: "main"),
 		.package(url: "https://github.com/simonnickel/snap-settings-service.git", branch: "main"),
-		.package(url: "https://github.com/simonnickel/snap-theme.git", branch: "main"),
+		.package(url: "https://github.com/simonnickel/snap-style.git", branch: "main"),
 	],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -34,7 +34,7 @@ let package = Package(
                 .product(name: "SnapDependencies", package: "snap-dependencies"),
                 .product(name: "SnapNavigation", package: "snap-navigation"),
                 .product(name: "SnapSettingsService", package: "snap-settings-service"),
-                .product(name: "SnapTheme", package: "snap-theme"),
+                .product(name: "SnapStyle", package: "snap-style"),
             ]
         ),
         .target(
@@ -45,14 +45,14 @@ let package = Package(
                 .product(name: "SnapDependencies", package: "snap-dependencies"),
                 .product(name: "SnapNavigation", package: "snap-navigation"),
                 .product(name: "SnapSettingsService", package: "snap-settings-service"),
-                .product(name: "SnapTheme", package: "snap-theme"),
+                .product(name: "SnapStyle", package: "snap-style"),
             ]
         ),
 		.target(
 			name: "SnapTemplateUtil",
 			dependencies: [
 				.product(name: "SnapNavigation", package: "snap-navigation"),
-				.product(name: "SnapTheme", package: "snap-theme"),
+				.product(name: "SnapStyle", package: "snap-style"),
 			]
 		),
     ],

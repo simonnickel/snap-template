@@ -4,10 +4,9 @@
 //
 
 import SnapSettingsService
-import SnapTheme
 
 public extension SettingsService.SettingDefinition {
 	
-	static let accentColor = SettingsService.Setting<Theme.ColorSet?>("Settings.Appearance.accentColor", in: .ubiquitous, default: nil)
+    static let navigationTabs = SettingsService.Setting<TabConfiguration?>("Settings.Appearance.navigationTabs", in: .defaults, default: nil)
 	
 }

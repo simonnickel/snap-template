@@ -10,9 +10,9 @@
 		5A1EEACA2BCD471400422FD8 /* SnapTemplateDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1EEAC92BCD471400422FD8 /* SnapTemplateDemoApp.swift */; };
 		5A63B4C82CFA781C005027B7 /* SnapTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = 5A63B4C72CFA781C005027B7 /* SnapTemplate */; };
 		5A63B4CB2CFA7878005027B7 /* SnapNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 5A63B4CA2CFA7878005027B7 /* SnapNavigation */; };
+		5A6C071F2E51011500A79434 /* SnapStyle in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6C071E2E51011500A79434 /* SnapStyle */; };
 		5AFFA5F52CFA647700FF6E73 /* SnapCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5AFFA5F42CFA647700FF6E73 /* SnapCore */; };
 		5AFFA5F82CFA6C2700FF6E73 /* SnapFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 5AFFA5F72CFA6C2700FF6E73 /* SnapFoundation */; };
-		5AFFA5FB2CFA6C3C00FF6E73 /* SnapTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 5AFFA5FA2CFA6C3C00FF6E73 /* SnapTheme */; };
 		5AFFA5FE2CFA6C5100FF6E73 /* SnapSettingsService in Frameworks */ = {isa = PBXBuildFile; productRef = 5AFFA5FD2CFA6C5100FF6E73 /* SnapSettingsService */; };
 /* End PBXBuildFile section */
 
@@ -37,9 +37,9 @@
 		5A0803F82CD026A4004680B3 /* AppDefinition */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppDefinition; sourceTree = "<group>"; };
 		5A0804002CD026B6004680B3 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
 		5A0804032CD026BB004680B3 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
-		5A08040D2CD026D7004680B3 /* Theme */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Theme; sourceTree = "<group>"; };
 		5A0804172CD026DB004680B3 /* Screens */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Screens; sourceTree = "<group>"; };
 		5A08041E2CD026E7004680B3 /* Project Files */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5A0804212CD026E7004680B3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Project Files"; sourceTree = "<group>"; };
+		5A6C07802E510E7100A79434 /* Style+Definitions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Style+Definitions"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 				5AFFA5F52CFA647700FF6E73 /* SnapCore in Frameworks */,
 				5AFFA5F82CFA6C2700FF6E73 /* SnapFoundation in Frameworks */,
 				5A63B4C82CFA781C005027B7 /* SnapTemplate in Frameworks */,
-				5AFFA5FB2CFA6C3C00FF6E73 /* SnapTheme in Frameworks */,
+				5A6C071F2E51011500A79434 /* SnapStyle in Frameworks */,
 				5AFFA5FE2CFA6C5100FF6E73 /* SnapSettingsService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,7 +83,7 @@
 				5A0803F82CD026A4004680B3 /* AppDefinition */,
 				5A0804002CD026B6004680B3 /* Services */,
 				5A0804032CD026BB004680B3 /* Data */,
-				5A08040D2CD026D7004680B3 /* Theme */,
+				5A6C07802E510E7100A79434 /* Style+Definitions */,
 				5A0804172CD026DB004680B3 /* Screens */,
 				5A08041E2CD026E7004680B3 /* Project Files */,
 			);
@@ -109,17 +109,17 @@
 				5A0803F82CD026A4004680B3 /* AppDefinition */,
 				5A0804002CD026B6004680B3 /* Services */,
 				5A0804032CD026BB004680B3 /* Data */,
-				5A08040D2CD026D7004680B3 /* Theme */,
 				5A0804172CD026DB004680B3 /* Screens */,
+				5A6C07802E510E7100A79434 /* Style+Definitions */,
 			);
 			name = SnapTemplateDemo;
 			packageProductDependencies = (
 				5AFFA5F42CFA647700FF6E73 /* SnapCore */,
 				5AFFA5F72CFA6C2700FF6E73 /* SnapFoundation */,
-				5AFFA5FA2CFA6C3C00FF6E73 /* SnapTheme */,
 				5AFFA5FD2CFA6C5100FF6E73 /* SnapSettingsService */,
 				5A63B4C72CFA781C005027B7 /* SnapTemplate */,
 				5A63B4CA2CFA7878005027B7 /* SnapNavigation */,
+				5A6C071E2E51011500A79434 /* SnapStyle */,
 			);
 			productName = SnapAppTemplate;
 			productReference = 5A1EEAC62BCD471300422FD8 /* SnapTemplateDemo.app */;
@@ -133,7 +133,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					5A1EEAC52BCD471300422FD8 = {
 						CreatedOnToolsVersion = 15.3;
@@ -152,11 +152,11 @@
 			packageReferences = (
 				5AFFA5F32CFA647700FF6E73 /* XCRemoteSwiftPackageReference "snap-core" */,
 				5AFFA5F62CFA6C2700FF6E73 /* XCRemoteSwiftPackageReference "snap-foundation" */,
-				5AFFA5F92CFA6C3C00FF6E73 /* XCRemoteSwiftPackageReference "snap-theme" */,
 				5AFFA5FC2CFA6C5100FF6E73 /* XCRemoteSwiftPackageReference "snap-settings-service" */,
 				5AFFA6022CFA6C7C00FF6E73 /* XCRemoteSwiftPackageReference "snap-swift-data" */,
 				5A63B4C62CFA781C005027B7 /* XCLocalSwiftPackageReference "../../snap-template" */,
 				5A63B4C92CFA7878005027B7 /* XCRemoteSwiftPackageReference "snap-navigation" */,
+				5A6C071D2E51011500A79434 /* XCRemoteSwiftPackageReference "snap-style" */,
 			);
 			productRefGroup = 5A1EEAC72BCD471300422FD8 /* Products */;
 			projectDirPath = "";
@@ -246,6 +246,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -302,6 +303,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 6.0;
 			};
@@ -317,9 +319,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapTemplateDemo/Project Files/Preview Content\"";
-				DEVELOPMENT_TEAM = QPW6B8MS22;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SnapTemplateDemo/Project Files/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -358,9 +361,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapTemplateDemo/Project Files/Preview Content\"";
-				DEVELOPMENT_TEAM = QPW6B8MS22;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SnapTemplateDemo/Project Files/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -428,6 +432,14 @@
 				kind = branch;
 			};
 		};
+		5A6C071D2E51011500A79434 /* XCRemoteSwiftPackageReference "snap-style" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simonnickel/snap-style";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		5AFFA5F32CFA647700FF6E73 /* XCRemoteSwiftPackageReference "snap-core" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/simonnickel/snap-core";
@@ -439,14 +451,6 @@
 		5AFFA5F62CFA6C2700FF6E73 /* XCRemoteSwiftPackageReference "snap-foundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/simonnickel/snap-foundation";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		5AFFA5F92CFA6C3C00FF6E73 /* XCRemoteSwiftPackageReference "snap-theme" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/simonnickel/snap-theme";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -480,6 +484,11 @@
 			package = 5A63B4C92CFA7878005027B7 /* XCRemoteSwiftPackageReference "snap-navigation" */;
 			productName = SnapNavigation;
 		};
+		5A6C071E2E51011500A79434 /* SnapStyle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A6C071D2E51011500A79434 /* XCRemoteSwiftPackageReference "snap-style" */;
+			productName = SnapStyle;
+		};
 		5AFFA5F42CFA647700FF6E73 /* SnapCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5AFFA5F32CFA647700FF6E73 /* XCRemoteSwiftPackageReference "snap-core" */;
@@ -489,11 +498,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5AFFA5F62CFA6C2700FF6E73 /* XCRemoteSwiftPackageReference "snap-foundation" */;
 			productName = SnapFoundation;
-		};
-		5AFFA5FA2CFA6C3C00FF6E73 /* SnapTheme */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5AFFA5F92CFA6C3C00FF6E73 /* XCRemoteSwiftPackageReference "snap-theme" */;
-			productName = SnapTheme;
 		};
 		5AFFA5FD2CFA6C5100FF6E73 /* SnapSettingsService */ = {
 			isa = XCSwiftPackageProductDependency;

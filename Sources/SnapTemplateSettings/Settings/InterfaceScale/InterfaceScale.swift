@@ -3,7 +3,7 @@
 //  Created by Simon Nickel
 //
 
-import SnapTheme
+import Foundation
 
 public enum InterfaceScale: String, PickableSetting {
 	
@@ -20,13 +20,14 @@ public enum InterfaceScale: String, PickableSetting {
 	
 	case tiny, small, medium, large, huge
 	
-	public var scale: Theme.NumberKey {
+	public var scale: Double {
 		switch self {
-			case .tiny: .interfaceScaleTiny
-			case .small: .interfaceScaleSmall
-			case .medium: .interfaceScaleMedium
-			case .large: .interfaceScaleLarge
-			case .huge: .interfaceScaleHuge
+            // TODO: Could reference a Style Number Key to control the value.
+            case .tiny: 0.75
+            case .small: 0.9
+            case .medium: 1
+            case .large: 1.1
+            case .huge: 1.25
 		}
 	}
 	

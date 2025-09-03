@@ -4,7 +4,7 @@
 //
 
 import SnapNavigation
-import SnapTheme
+import SnapStyle
 import SwiftUI
 
 /// Combining `SnapNavigation` with `SnapTheme` to provide a themed `NavigationLink` (it's a Button) to use in a `List`.
@@ -23,16 +23,15 @@ public struct NavigationListRow<Destination: SnapNavigationDestination>: View {
     }
     
     public var body: some View {
-        Button {
+        // TODO: isPresentingDestination does not work well here, because the same list row exists on the next screen. Could be changed to `isPresenting(_ destination:, from:)` and check the combination.
+        StyleListRow(.navigation(isPresented: isActive), icon: destination.icon) {
             navigator(.present(destination, style: .push))
-        } label: {
-            ThemeLabel(text: destination.definition.title, icon: destination.icon)
-                .labelStyle(.themeListRow())
+        } title: {
+            Text(destination.definition.title)
         }
         .onChange(of: navigationState) { _, _ in
             isActive = isPresentingDestination(destination)
         }
-        .themeListRow(isSelected: isActive)
     }
     
 }

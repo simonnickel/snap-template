@@ -7,7 +7,7 @@ import Combine
 import SnapDependencies
 import SnapSettingsService
 import SnapTemplateSettings
-import SnapTheme
+import SnapStyle
 import SwiftUI
 
 @Observable
@@ -24,14 +24,18 @@ public class TemplateState {
 	// TODO: Adapt navigation layout options in SnapNavigation.
 	public var navigationLayout: NavigationLayout?
 	
-	/// Accent selected in Settings.
-	public var accentColor: Theme.ColorSet?
+    /// Primary accent selected in Settings.
+    public var accentPrimary: SnapStyle.AccentKey.Value.WrappedValue?
+    /// Secondary accent selected in Settings.
+    public var accentSecondary: SnapStyle.AccentKey.Value.WrappedValue?
+    
+    let style: SnapStyle = SnapStyle(
+        configuration: .init(
+            allowNavigationBarTitleAdjustments: true
+        )
+    )
 	
-	/// The `Theme` applied to the AppContainer.
-	public var theme: Theme
-	
-	public init(theme: Theme = .base) {
-		self.theme = theme
+	public init() {
 		setupDisplayMode()
 		setupInterfaceScale()
 		setupNavigationLayout()
@@ -41,6 +45,7 @@ public class TemplateState {
 	
 	// MARK: - Settings Updates
 	
+    // TODO: Settings could use Observable.
 	@ObservationIgnored private var subscriptions: [AnyCancellable] = []
 	
 	
@@ -65,21 +70,8 @@ public class TemplateState {
 			.withWeak(self)
 			.sink { weakSelf, value in
 				weakSelf.interfaceScale = value
-				weakSelf.applyInterfaceScale()
 			}
 			.store(in: &subscriptions)
-	}
-	
-	private func applyInterfaceScale() {
-		var theme = self.theme
-		
-		if let interfaceScale = interfaceScale {
-			theme = theme.replacingValues(
-				scale: theme.number(interfaceScale.scale)
-			)
-		}
-		
-		self.theme = theme
 	}
 	
 	
@@ -100,29 +92,13 @@ public class TemplateState {
 	
 	private func setupAccentColor() {
 		// Apply change of settings to state. Handle Remote change. Also sets initial value.
-		settings.publisher(.accentColor)
+		settings.publisher(.accent)
 			.withWeak(self)
 			.sink { weakSelf, value in
-				weakSelf.accentColor = value
-				weakSelf.applyAccentColor()
+                weakSelf.accentPrimary = value?.accentPair.0
+                weakSelf.accentSecondary = value?.accentPair.1
 			}
 			.store(in: &subscriptions)
-	}
-	
-	private func applyAccentColor() {
-		var theme = self.theme
-		
-		if let accentColorSelected = accentColor {
-			theme = theme.replacingValues(
-				colors: [
-					.accentColors : .colorSet(accentColorSelected.base, complimentary: accentColorSelected.complimentary, complementary: accentColorSelected.complementary)
-				]
-			)
-		} else if let color = theme.systemColor(for: .accentColorBase)?.value {
-			theme = theme.replaceAccent(base: color)
-		}
-		
-		self.theme = theme
 	}
 	
 }
