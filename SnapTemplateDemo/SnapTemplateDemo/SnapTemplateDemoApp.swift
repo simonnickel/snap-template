@@ -8,6 +8,7 @@ import SnapTemplateApp
 import SwiftUI
 
 // TODO: Settings button default placement on iPhone
+// Should SnapNavigation support root destination toolbar setup?
 
 @main
 struct SnapTemplateDemoApp: App {
