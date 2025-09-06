@@ -9,9 +9,6 @@ import SnapTemplateUtil
 import SnapStyle
 import SwiftUI
 
-// TODO: See ToolbarButtonSettings below
-import SnapTemplateSettings
-
 struct ExampleScreen: View {
 	
 	@Dependency(\.dataSource) private var dataSource
@@ -44,9 +41,6 @@ struct ExampleScreen: View {
                     } content: {
                         Text("Push .circle")
                     }
-                    
-                    // TODO: Should be part of the template and in the navigationbar.
-                    ToolbarButtonSettings()
                 }
                 .style(padding: \.spacingGroups, [.vertical, .trailing])
                 .stretch(alignment: .center)
@@ -54,6 +48,9 @@ struct ExampleScreen: View {
             }
 
 		}
+        .toolbar {
+            Template.toolbarItem(AppDestination.settingsTemplate(.settingsScreen), placement: .topBarLeading)
+        }
 		
 	}
 	
