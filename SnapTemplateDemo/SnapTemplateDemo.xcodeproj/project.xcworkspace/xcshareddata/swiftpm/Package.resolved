@@ -16,7 +16,7 @@
       "location" : "https://github.com/simonnickel/snap-dependencies.git",
       "state" : {
         "branch" : "main",
-        "revision" : "97b0cf9cc04112901676f67687655182b30ac8d7"
+        "revision" : "23f82a5afb7a9a4de89ce8ac99b8737e942222be"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "https://github.com/simonnickel/snap-foundation",
       "state" : {
         "branch" : "main",
-        "revision" : "ee8af3f0c4ec6d9f375e4f9c192247d13cb1f760"
+        "revision" : "04929cb99ce8d552e61d7a5cb9cc65375fddd063"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "https://github.com/simonnickel/snap-navigation",
       "state" : {
         "branch" : "main",
-        "revision" : "c531f02ef4a16693735f2c8fecfcd1fab25dbeca"
+        "revision" : "efb3523c40cb70d439d18470c40ec6b0d4225e71"
       }
     },
     {
@@ -52,7 +52,7 @@
       "location" : "https://github.com/simonnickel/snap-style",
       "state" : {
         "branch" : "main",
-        "revision" : "ceb5e02dc3777696646c733e2cb0fe78545ed1a8"
+        "revision" : "fdd7ea936f6e73752492b9606e2ef6ffcbb8992b"
       }
     },
     {
@@ -61,7 +61,7 @@
       "location" : "https://github.com/simonnickel/snap-swift-data",
       "state" : {
         "branch" : "main",
-        "revision" : "76e913641443d6b262c25d77b5fc8c8934c30a90"
+        "revision" : "fd2c2576466cedcac1c91c26138a0006b413344a"
       }
     }
   ],
