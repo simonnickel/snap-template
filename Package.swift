@@ -30,6 +30,7 @@ let package = Package(
 			name: "SnapTemplateApp",
 			dependencies: [
                 "SnapTemplateSettings",
+                "SnapTemplateUtil",
                 .product(name: "SnapCore", package: "snap-core"),
                 .product(name: "SnapDependencies", package: "snap-dependencies"),
                 .product(name: "SnapNavigation", package: "snap-navigation"),

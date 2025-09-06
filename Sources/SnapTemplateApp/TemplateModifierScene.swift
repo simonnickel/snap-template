@@ -6,6 +6,7 @@
 import SnapDependencies
 import SnapNavigation
 import SnapTemplateSettings
+import SnapTemplateUtil
 import SnapStyle
 import SwiftUI
 
@@ -41,7 +42,7 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 #if !os(macOS) // macOS settings are available in the application menu.
 			.tabViewSidebarBottomBar {
 				HStack {
-					ToolbarButtonSettings()
+                    NavigationButton(destination: TemplateSettingsDestination.settingsScreen)
 				}
 			}
 #endif

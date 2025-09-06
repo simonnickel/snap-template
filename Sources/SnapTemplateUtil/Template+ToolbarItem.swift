@@ -4,29 +4,47 @@
 //
 
 import SnapNavigation
+import SnapStyle
 import SwiftUI
 
 extension Template {
     
+    @MainActor
     @ToolbarContentBuilder
     public static func toolbarItem(_ destination: SnapNavigationDestination, placement: ToolbarItemPlacement = .automatic) -> some ToolbarContent {
         ToolbarItem(placement: placement) {
-            NavigationToolbarItemButton(destination: destination)
+            NavigationToolbarButton(destination: destination)
         }
     }
 }
 
-private struct NavigationToolbarItemButton: View {
+private struct NavigationToolbarButton: View {
     
     @Environment(\.navigator) private var navigator
     
-    let destination: SnapNavigationDestination
+    private let destination: SnapNavigationDestination
     
-    var body: some View {
-        Button {
+    internal init(destination: SnapNavigationDestination) {
+        self.destination = destination
+    }
+    
+    internal var body: some View {
+        StyleButton(.plain) {
             navigator(.present(destination))
-        } label: {
-            AnyView(destination.label)
+        } content: {
+            // TODO: StyleLabel shows weird spacing, because it does not support icon-only. As soon as there is an icon, SwiftUI enforces an icon-only button style.
+            // Would be possible if StyleLabel supports .iconOnly or a similar mechanism.
+            // Would make NavigationToolbarButton redundant, could use NavigationButton.
+            // AnyView(destination.label)
+            Label {
+                Text(destination.definition.title)
+            } icon: {
+                if let icon = destination.icon {
+                    StyleIcon(icon)
+                } else {
+                    EmptyView()
+                }
+            }
         }
     }
 }
