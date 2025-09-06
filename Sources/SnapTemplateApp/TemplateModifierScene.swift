@@ -42,7 +42,6 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 			.tabViewSidebarBottomBar {
 				HStack {
 					ToolbarButtonSettings()
-					Spacer()
 				}
 			}
 #endif
