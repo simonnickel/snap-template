@@ -67,7 +67,6 @@ extension ConfigureTabsScreen {
                 Section { } footer: {
                     if showResetButton {
                         StyleStack(.horizontal, spacing: \.spacingElements, alignmentH: .center) {
-                            // TODO: Destructive style
                             StyleButton {
                                 tabsSetting.set(nil)
                             } content: {
@@ -80,6 +79,7 @@ extension ConfigureTabsScreen {
                                     }
                                 }
                             }
+                            .style(accent: \.destructive)
                         }
                         .transition(.opacity)
                     }
