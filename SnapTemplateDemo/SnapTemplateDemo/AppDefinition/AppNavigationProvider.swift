@@ -51,8 +51,6 @@ struct AppNavigationProvider: SnapNavigationProvider {
 
 extension AppNavigationProvider {
     
-    // TODO: What happens if I have a configuration, but a new tab is introduced later?
-    
     /// The default tab configuration.
     /// Defined here and set as `\.tabConfigurationDefault` in Dependencies to use in SnapTemplateSettings.
     static let tabConfigurationDefault = TabConfiguration(
