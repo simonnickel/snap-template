@@ -28,6 +28,7 @@ extension ConfigureTabsScreen {
             
             let icon = tabConfigurationIconMapping[tab.id]
 			
+            // TODO: Why is the icon not aligned?
 			StyleListRow {
 				if isRequired {
                     StyleLabel(tab.name, icon: icon)
