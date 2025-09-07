@@ -39,8 +39,8 @@ public struct ConfigureTabsScreen: View {
 // MARK: - Previews
 
 #Preview {
-    let tab1 = TabConfiguration.Tab(id: "Tab1", name: "Tab1", icon: nil)
-    let tab2 = TabConfiguration.Tab(id: "Tab2", name: "Tab2", icon: nil)
+    let tab1 = TabConfiguration.Tab(id: "Tab1", name: "Tab1")
+    let tab2 = TabConfiguration.Tab(id: "Tab2", name: "Tab2")
     
     Dependencies.override(\.tabConfigurationDefault) {
         TabConfiguration(
@@ -53,5 +53,4 @@ public struct ConfigureTabsScreen: View {
 	
 	return ConfigureTabsScreen()
         .environment(\.serviceSettings, SettingsService())
-	
 }

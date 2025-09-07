@@ -5,6 +5,7 @@
 
 import SnapDependencies
 import SnapNavigation
+import SnapStyle
 
 extension SnapNavigationProvider {
     
@@ -32,12 +33,21 @@ extension SnapNavigationProvider {
         }
     }
     
+    public static var tabConfigurationIconMapping: TabConfiguration.IconMapping {
+        var result: [TabConfiguration.Tab.ID : SnapStyle.IconKey.ValueBuilderKeyPath] = [:]
+        for destination in rootDestinationOptions {
+            result[destination.tab.id] = destination.icon
+        }
+        
+        return result
+    }
+    
 }
 
 extension SnapNavigationDestination {
     
     public var tab: TabConfiguration.Tab {
-        .init(id: "\(id)", name: definition.title, icon: icon)
+        .init(id: "\(id)", name: definition.title)
     }
 
 }

@@ -36,6 +36,7 @@ extension Dependencies: @retroactive DependencyForwardingFactory {
             // MARK: Template Dependencies
             
             case \.tabConfigurationDefault: AppNavigationProvider.tabConfigurationDefault as? Dependency
+            case \.templateTabConfigurationIconMapping: AppNavigationProvider.tabConfigurationIconMapping as? Dependency
 				
 			default: nil
 

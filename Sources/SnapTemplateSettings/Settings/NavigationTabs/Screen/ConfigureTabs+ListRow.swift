@@ -7,10 +7,13 @@ import SwiftUI
 import SnapCore
 import SnapStyle
 import SnapSettingsService
+import SnapDependencies
 
 extension ConfigureTabsScreen {
 	
 	struct ListRow: View {
+        
+        @Dependency(\.templateTabConfigurationIconMapping) private var tabConfigurationIconMapping
 		
 		let tab: TabConfiguration.Tab
 		let tabsSetting: SettingsService.Value<TabConfiguration?>
@@ -22,14 +25,16 @@ extension ConfigureTabsScreen {
 		@State private var isVisibleInTabBar: Bool = false
 		
 		var body: some View {
+            
+            let icon = tabConfigurationIconMapping[tab.id]
 			
 			StyleListRow {
 				if isRequired {
-                    StyleLabel(tab.name, systemImage: tab.icon)
+                    StyleLabel(tab.name, icon: icon)
 				} else {
 					// TODO: Haptic Feedback on label tap
 					ToggleTapable(isOn: $isOn) {
-                        StyleLabel(tab.name, systemImage: tab.icon)
+                        StyleLabel(tab.name, icon: icon)
 					}
 				}
 			}
