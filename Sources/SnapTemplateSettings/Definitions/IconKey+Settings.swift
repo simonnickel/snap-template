@@ -5,7 +5,7 @@
 
 import SnapStyle
 
-extension SnapStyle.IconKey {
+extension Style.IconKey {
 
     
     // MARK: - Navigation

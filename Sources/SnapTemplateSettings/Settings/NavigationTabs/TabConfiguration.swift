@@ -12,7 +12,7 @@ import SnapStyle
 
 public struct TabConfiguration: Codable, Equatable, Hashable, Sendable {
     
-    public typealias IconMapping = [Tab.ID : SnapStyle.IconKey.ValueBuilderKeyPath]
+    public typealias IconMapping = [Tab.ID : Style.IconKey.ValueBuilderKeyPath]
 	
 	public struct Tab: Identifiable, Codable, Equatable, Hashable, Sendable {
 		

@@ -25,7 +25,7 @@ public enum AccentOption: Codable, CaseIterable, Sendable {
     case indigoFallbackAlternative
     case fallbackFallbackAlternative
     
-    public var accentPair: (SnapStyle.AccentKey.Value.WrappedValue, SnapStyle.AccentKey.Value.WrappedValue) {
+    public var accentPair: (Style.AccentKey.Value.WrappedValue, Style.AccentKey.Value.WrappedValue) {
         switch self {
             case .blueFallbackAlternative: (.blue, .fallbackSecondary)
             case .blueYellow: (.blue, .yellow)

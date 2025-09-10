@@ -25,11 +25,11 @@ public class TemplateState {
 	public var navigationLayout: NavigationLayout?
 	
     /// Primary accent selected in Settings.
-    public var accentPrimary: SnapStyle.AccentKey.Value.WrappedValue?
+    public var accentPrimary: Style.AccentKey.Value.WrappedValue?
     /// Secondary accent selected in Settings.
-    public var accentSecondary: SnapStyle.AccentKey.Value.WrappedValue?
+    public var accentSecondary: Style.AccentKey.Value.WrappedValue?
     
-    let style: SnapStyle = SnapStyle(
+    let style: Style = Style(
         configuration: .init(
             allowNavigationBarTitleAdjustments: true
         )

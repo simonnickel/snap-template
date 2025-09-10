@@ -34,7 +34,7 @@ extension SnapNavigationProvider {
     }
     
     public static var tabConfigurationIconMapping: TabConfiguration.IconMapping {
-        var result: [TabConfiguration.Tab.ID : SnapStyle.IconKey.ValueBuilderKeyPath] = [:]
+        var result: [TabConfiguration.Tab.ID : Style.IconKey.ValueBuilderKeyPath] = [:]
         for destination in rootDestinationOptions {
             result[destination.tab.id] = destination.icon
         }
