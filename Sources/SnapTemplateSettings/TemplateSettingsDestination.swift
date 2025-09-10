@@ -15,8 +15,8 @@ public enum TemplateSettingsDestination: SnapNavigationDestination {
 
 	public var definition: SnapNavigation.ScreenDefinition {
 		switch self {
-            case .settingsScreen: .init(title: "Settings", icon: \Style.IconKey.settings, style: .modal) { TemplateSettingsScreen() }
-			case .tabConfiguration: .init(title: "Configure Tabs", icon: \Style.IconKey.settingsTabs) {
+            case .settingsScreen: .init(title: "Settings", icon: \Style.Keys.Icon.settings, style: .modal) { TemplateSettingsScreen() }
+			case .tabConfiguration: .init(title: "Configure Tabs", icon: \Style.Keys.Icon.settingsTabs) {
                 ConfigureTabsScreen()
 			}
 		}

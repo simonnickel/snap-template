@@ -25,9 +25,9 @@ public class TemplateState {
 	public var navigationLayout: NavigationLayout?
 	
     /// Primary accent selected in Settings.
-    public var accentPrimary: Style.AccentKey.Value.WrappedValue?
+    public var accentPrimary: Style.Keys.Accent.Value.WrappedValue?
     /// Secondary accent selected in Settings.
-    public var accentSecondary: Style.AccentKey.Value.WrappedValue?
+    public var accentSecondary: Style.Keys.Accent.Value.WrappedValue?
     
     let style: Style = Style(
         configuration: .init(

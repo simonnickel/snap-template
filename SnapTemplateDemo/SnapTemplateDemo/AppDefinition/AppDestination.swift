@@ -22,14 +22,14 @@ enum AppDestination: SnapNavigationDestination {
 
 	var definition: SnapNavigation.ScreenDefinition {
 		switch self {
-            case .rectangle: .init(title: "Rectangle", icon: \Style.IconKey.navGroupRectangle)
-			case .rectangleA: .init(title: "Rectangle A", icon: \Style.IconKey.navGroupRectangle)
-			case .rectangleB: .init(title: "Rectangle B", icon: \Style.IconKey.navGroupRectangle)
+            case .rectangle: .init(title: "Rectangle", icon: \Style.Keys.Icon.navGroupRectangle)
+			case .rectangleA: .init(title: "Rectangle A", icon: \Style.Keys.Icon.navGroupRectangle)
+			case .rectangleB: .init(title: "Rectangle B", icon: \Style.Keys.Icon.navGroupRectangle)
 				
-			case .circle: .init(title: "Circle", icon: \Style.IconKey.navGroupCircle)
-			case .circleA: .init(title: "Circle A", icon: \Style.IconKey.navGroupCircle)
+			case .circle: .init(title: "Circle", icon: \Style.Keys.Icon.navGroupCircle)
+			case .circleA: .init(title: "Circle A", icon: \Style.Keys.Icon.navGroupCircle)
 				
-			case .triangle: .init(title: "Triangle", icon: \Style.IconKey.navGroupTriangle)
+			case .triangle: .init(title: "Triangle", icon: \Style.Keys.Icon.navGroupTriangle)
 			
 			case .settingsTemplate(let destination): destination.definition
 		}

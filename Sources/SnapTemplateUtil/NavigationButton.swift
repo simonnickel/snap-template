@@ -34,7 +34,7 @@ public struct NavigationButton: View {
         
         case screen
         
-        var definition: SnapNavigation.ScreenDefinition { .init(title: "Rectangle", icon: \Style.IconKey.favorite) }
+        var definition: SnapNavigation.ScreenDefinition { .init(title: "Rectangle", icon: \Style.Keys.Icon.favorite) }
         
         var label: any View { StyleLabel(definition.title, icon: icon) }
         
