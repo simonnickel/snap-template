@@ -29,7 +29,7 @@ extension ConfigureTabsScreen {
             
             // TODO: Haptic Feedback on label tap
             let icon = tabConfigurationIconMapping[tab.id]
-            let variant: StyleListRowVariant<AnyHashable> = isRequired ? .plain : .enabled($isOn)
+            let variant: Style.Views.List.Row.Variant<AnyHashable> = isRequired ? .plain : .enabled($isOn)
             StyleListRow(variant, icon: icon) {
                 Text(tab.name)
 			}
