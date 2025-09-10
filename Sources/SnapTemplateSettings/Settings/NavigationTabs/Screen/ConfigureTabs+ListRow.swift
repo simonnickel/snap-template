@@ -19,6 +19,7 @@ extension ConfigureTabsScreen {
 		let tabsSetting: SettingsService.Value<TabConfiguration?>
 		let defaultConfiguration: TabConfiguration
 		
+        // TODO: Merge into struct
 		@State private var isOn: Bool = false
 		@State private var isRequired: Bool = false
         /// `false` if the tab will not be visible in the tab bar.
@@ -26,18 +27,11 @@ extension ConfigureTabsScreen {
 		
 		var body: some View {
             
+            // TODO: Haptic Feedback on label tap
             let icon = tabConfigurationIconMapping[tab.id]
-			
-            // TODO: Why is the icon not aligned?
-			StyleListRow {
-				if isRequired {
-                    StyleLabel(tab.name, icon: icon)
-				} else {
-					// TODO: Haptic Feedback on label tap
-					ToggleTapable(isOn: $isOn) {
-                        StyleLabel(tab.name, icon: icon)
-					}
-				}
+            let variant: StyleListRowVariant<AnyHashable> = isRequired ? .plain : .enabled($isOn)
+            StyleListRow(variant, icon: icon) {
+                Text(tab.name)
 			}
             // TODO: set disabled style
 //            .if(!isVisibleInTabBar) { view in
