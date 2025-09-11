@@ -4,27 +4,32 @@
 //
 
 import Foundation
+import SnapNavigation
 
-public enum NavigationLayout: String, PickableSetting {
+public struct NavigationLayout: PickableSetting {
+    
+    public let style: SnapNavigation.NavigationStyle
 	
 	// TODO Localisation
 	public static var title: String { "Navigation Layout" }
-		
-	public var id: String { self.rawValue }
+    
+    // TODO: SnapNavigation.NavigationStyle should be CaseIterable.
+    public static var allCases: [NavigationLayout] {
+        [.init(style: .single), .init(style: .tabsAdaptable)]
+    }
+        
+    public var id: SnapNavigation.NavigationStyle { style.self }
+    
+    // TODO Localisation
+    public var title: String {
+        switch style {
+            case .single: "Single"
+            case .tabsAdaptable: "Tabs Adaptable"
+        }
+    }
 	
-	// TODO Localisation
-	public var title: String { self.rawValue.uppercasedFirstLetter }
-	
-	
-	// MARK: - Options
-	
-	/// Automatically determine Layout.
-	case automatic
-	
-	/// Layout with a `TabBar` controlling the main content.
-	case tab
-	
-	/// Layout as SplitView with a `Sidebar` controlling the main content.
-	case sidebar
-	
+    public static var defaultValue: NavigationLayout { .init(style: .tabsAdaptable) }
+    public static var single: NavigationLayout { .init(style: .single) }
+    public static var tabsAdaptable: NavigationLayout { .init(style: .tabsAdaptable) }
+    
 }

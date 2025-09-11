@@ -5,6 +5,7 @@
 
 import Combine
 import SnapDependencies
+import SnapNavigation
 import SnapSettingsService
 import SnapTemplateSettings
 import SnapStyle
@@ -21,8 +22,7 @@ public class TemplateState {
 	
 	public var interfaceScale: InterfaceScale?
 	
-	// TODO: Adapt navigation layout options in SnapNavigation.
-	public var navigationLayout: NavigationLayout?
+    public var navigationLayout: NavigationLayout?
 	
     /// Primary accent selected in Settings.
     public var accentPrimary: Style.Keys.Accent.Value.WrappedValue?
@@ -82,7 +82,7 @@ public class TemplateState {
 		settings.publisher(.navigationLayout)
 			.withWeak(self)
 			.sink { weakSelf, value in
-				weakSelf.navigationLayout = value
+                weakSelf.navigationLayout = value
 			}
 			.store(in: &subscriptions)
 	}

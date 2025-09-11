@@ -7,7 +7,7 @@ import SnapSettingsService
 
 public extension SettingsService.SettingDefinition {
 	
-	static let navigationLayout = SettingsService.Setting<NavigationLayout>("Settings.Appearance.NavigationLayout", in: .defaults, default: .automatic)
+	static let navigationLayout = SettingsService.Setting<NavigationLayout>("Settings.Appearance.NavigationLayout", in: .defaults, default: .defaultValue)
 	
 }
 
