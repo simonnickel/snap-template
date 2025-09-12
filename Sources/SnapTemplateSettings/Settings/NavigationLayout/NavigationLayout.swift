@@ -13,9 +13,10 @@ public struct NavigationLayout: PickableSetting {
 	// TODO Localisation
 	public static var title: String { "Navigation Layout" }
     
-    // TODO: SnapNavigation.NavigationStyle should be CaseIterable.
     public static var allCases: [NavigationLayout] {
-        [.init(style: .single), .init(style: .tabsAdaptable)]
+        SnapNavigation.NavigationStyle.allCases
+            .filter { $0 != .automatic }
+            .map { NavigationLayout(style: $0) }
     }
         
     public var id: SnapNavigation.NavigationStyle { style.self }
@@ -23,6 +24,7 @@ public struct NavigationLayout: PickableSetting {
     // TODO Localisation
     public var title: String {
         switch style {
+            case .automatic: "Automatic"
             case .single: "Single"
             case .tabsAdaptable: "Tabs Adaptable"
         }
