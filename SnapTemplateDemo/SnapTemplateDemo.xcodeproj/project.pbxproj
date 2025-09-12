@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 71;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,7 +38,7 @@
 		5A0804002CD026B6004680B3 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
 		5A0804032CD026BB004680B3 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
 		5A0804172CD026DB004680B3 /* Screens */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Screens; sourceTree = "<group>"; };
-		5A08041E2CD026E7004680B3 /* Project Files */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5A0804212CD026E7004680B3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Project Files"; sourceTree = "<group>"; };
+		5A08041E2CD026E7004680B3 /* Project */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5A0804212CD026E7004680B3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Project; sourceTree = "<group>"; };
 		5A6C07802E510E7100A79434 /* Style+Definitions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Style+Definitions"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -85,7 +85,7 @@
 				5A0804032CD026BB004680B3 /* Data */,
 				5A6C07802E510E7100A79434 /* Style+Definitions */,
 				5A0804172CD026DB004680B3 /* Screens */,
-				5A08041E2CD026E7004680B3 /* Project Files */,
+				5A08041E2CD026E7004680B3 /* Project */,
 			);
 			path = SnapTemplateDemo;
 			sourceTree = "<group>";
@@ -191,6 +191,8 @@
 /* Begin XCBuildConfiguration section */
 		5A1EEAD32BCD471600422FD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 5A08041E2CD026E7004680B3 /* Project */;
+			baseConfigurationReferenceRelativePath = "config-private.xcconfig";
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -255,6 +257,8 @@
 		};
 		5A1EEAD42BCD471600422FD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 5A08041E2CD026E7004680B3 /* Project */;
+			baseConfigurationReferenceRelativePath = "config-private.xcconfig";
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -314,17 +318,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SnapTemplateDemo/Project Files/SnapTemplateDemo.entitlements";
+				CODE_SIGN_ENTITLEMENTS = SnapTemplateDemo/Project/SnapTemplateDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"SnapTemplateDemo/Project Files/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SnapTemplateDemo/Project/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SnapTemplateDemo/Project Files/Info.plist";
+				INFOPLIST_FILE = SnapTemplateDemo/Project/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -356,17 +360,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SnapTemplateDemo/Project Files/SnapTemplateDemo.entitlements";
+				CODE_SIGN_ENTITLEMENTS = SnapTemplateDemo/Project/SnapTemplateDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"SnapTemplateDemo/Project Files/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SnapTemplateDemo/Project/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SnapTemplateDemo/Project Files/Info.plist";
+				INFOPLIST_FILE = SnapTemplateDemo/Project/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
