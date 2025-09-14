@@ -35,7 +35,7 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
             .styleSetup(templateState.style)
 
             // Settings
-            .navigationStyle(window == .main ? templateState.navigationLayout?.style : .single) // TODO: Which style if not .main?
+            .navigationStyle(templateState.navigationLayout?.style)
 			.preferredColorScheme(templateState.displayMode?.colorScheme)
         
             // Others
