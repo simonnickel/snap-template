@@ -13,7 +13,7 @@ import SnapDependencies
 public struct AccentColorPicker: View {
 	
 	private enum Constants {
-		static let widthMax: CGFloat = 550
+		static let width: CGFloat = 50
 	}
 	
     // TODO: What was this used for?
@@ -28,8 +28,8 @@ public struct AccentColorPicker: View {
 	}
 	
 	public var body: some View {
-		
-        StyleStack(.horizontal, spacing: \.spacingElements) {
+
+        StyleFlowLayout(spacingH: \.spacingElements, spacingV: \.spacingElements) {
             ForEach(AccentOption.allCases, id: \.self) { option in
                 
                 // TODO: Identify default if no setting is available.
@@ -50,14 +50,14 @@ public struct AccentColorPicker: View {
                             .stroke(Color.primary, lineWidth: 2) // TODO: Width Value from generic line width NumberKey
                     }
                 }
+                .frame(width: Constants.width, height: Constants.width) // TODO: Scale values
                 .onTapGesture {
                     setting.set(option)
                 }
                 
             }
         }
-        .frame(maxWidth: Constants.widthMax, alignment: .center)
-		
+
 	}
 	
 }

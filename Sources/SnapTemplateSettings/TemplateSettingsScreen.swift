@@ -24,7 +24,8 @@ public struct TemplateSettingsScreen: View {
             SettingsHeaderSection(name: "I am Simon Nickel", text: "I hope you enjoy using this template as much as I enjoy creating it!")
             
             Section {
-                
+
+                // TODO: Disabled inset for content
                 StyleListRow(
                     title: {
                         Text("Accent Color")
@@ -33,7 +34,6 @@ public struct TemplateSettingsScreen: View {
                         AccentColorPicker(
                             setting: settings.value(.accent)
                         )
-                        .frame(maxWidth: .infinity, alignment: .center)
                     }
                 )
                 
