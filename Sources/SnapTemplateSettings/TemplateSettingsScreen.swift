@@ -25,7 +25,6 @@ public struct TemplateSettingsScreen: View {
             
             Section {
 
-                // TODO: Disabled inset for content
                 StyleListRow(
                     title: {
                         Text("Accent Color")
