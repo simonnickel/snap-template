@@ -15,7 +15,7 @@ public struct AccentColorPicker: View {
     @Environment(\.style) private var style
     
     @ScaledValue(50) private var sizeItem
-    @ScaledValue(2) private var widthSelectedBorder
+    @ScaledNumber(\.strokeSelected) private var widthSelectedStroke
 	
 	private let setting: SettingsService.Value<AccentOption?>
 	
@@ -43,7 +43,7 @@ public struct AccentColorPicker: View {
                     if isSelected {
                         Circle()
                             .fill(.clear)
-                            .stroke(Color.primary, lineWidth: widthSelectedBorder) // TODO: Width Value from generic line width NumberKey
+                            .stroke(Color.primary, lineWidth: widthSelectedStroke)
                     }
                 }
                 .frame(width: sizeItem)
