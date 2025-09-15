@@ -36,8 +36,6 @@ public struct TemplateSettingsScreen: View {
                     }
                 )
                 
-                // TODO: Segmented instead of Picker?
-                
                 SettingsPicker(setting: settings.value(.displayMode))
                 
                 SettingsPicker(setting: settings.value(.interfaceScale))
