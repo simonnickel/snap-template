@@ -8,8 +8,6 @@ import SnapStyle
 import SnapSettingsService
 import SnapDependencies
 
-// TODO: Wrap lines on dynamic type sizes
-
 public struct AccentColorPicker: View {
 	
 	private enum Constants {
