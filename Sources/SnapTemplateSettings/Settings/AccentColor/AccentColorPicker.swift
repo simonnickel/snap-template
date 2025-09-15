@@ -10,14 +10,12 @@ import SnapDependencies
 
 public struct AccentColorPicker: View {
 	
-	private enum Constants {
-		static let width: CGFloat = 50
-	}
-	
-    // TODO: What was this used for?
-	@ScaledMetric private var scaleFactor: CGFloat = 1
-	
 	@Dependency(\.settingsService) private var settings
+    
+    @Environment(\.style) private var style
+    
+    @ScaledValue(50) private var sizeItem
+    @ScaledValue(2) private var widthSelectedBorder
 	
 	private let setting: SettingsService.Value<AccentOption?>
 	
@@ -45,10 +43,10 @@ public struct AccentColorPicker: View {
                     if isSelected {
                         Circle()
                             .fill(.clear)
-                            .stroke(Color.primary, lineWidth: 2) // TODO: Width Value from generic line width NumberKey
+                            .stroke(Color.primary, lineWidth: widthSelectedBorder) // TODO: Width Value from generic line width NumberKey
                     }
                 }
-                .frame(width: Constants.width, height: Constants.width) // TODO: Scale values
+                .frame(width: sizeItem)
                 .onTapGesture {
                     setting.set(option)
                 }
