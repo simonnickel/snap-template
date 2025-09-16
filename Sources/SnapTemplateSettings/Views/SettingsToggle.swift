@@ -8,7 +8,7 @@ import SnapCore
 import SnapSettingsService
 import SnapDependencies
 
-// TODO: Necessary?
+/// When in a List, use StyleListRow(.enabled) instead.
 public struct SettingsToggle: View {
 		
 	@Dependency(\.settingsService) private var settings
