@@ -15,7 +15,7 @@ public protocol PickableSetting: Identifiable, Codable, Hashable, Sendable, Case
 	
 }
 
-public struct SettingsPicker<Setting: PickableSetting>: View {
+public struct SettingsPickerRow<Setting: PickableSetting>: View {
 		
 	@Dependency(\.settingsService) private var settings
 	

@@ -38,9 +38,9 @@ public struct TemplateSettingsScreen: View {
                     }
                 )
                 
-                SettingsPicker(setting: settings.value(.displayMode))
+                SettingsPickerRow(setting: settings.value(.displayMode))
                 
-                SettingsPicker(setting: settings.value(.interfaceScale))
+                SettingsPickerRow(setting: settings.value(.interfaceScale))
                 
             } header: {
                 Text("Appearance")
@@ -49,7 +49,7 @@ public struct TemplateSettingsScreen: View {
             
             Section {
                 
-                SettingsPicker(setting: settings.value(.navigationLayout))
+                SettingsPickerRow(setting: settings.value(.navigationLayout))
                 
                 NavigationListRow(destination: TemplateSettingsDestination.tabConfiguration)
                 
