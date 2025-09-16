@@ -16,6 +16,7 @@ public struct AccentColorPicker: View {
     
     @ScaledValue(50) private var sizeItem
     @ScaledNumber(\.strokeSelected) private var widthSelectedStroke
+    @ScaledNumber(\.spacingElements) private var spacing
 	
 	private let setting: SettingsService.Value<AccentOption?>
 	
@@ -25,7 +26,7 @@ public struct AccentColorPicker: View {
 	
 	public var body: some View {
 
-        StyleFlowLayout(spacingH: \.spacingElements, spacingV: \.spacingElements) {
+        StyleFlowLayout(spacingH: spacing, spacingV: spacing) {
             ForEach(AccentOption.allCases, id: \.self) { option in
                 
                 // TODO: Identify default if no setting is available.
