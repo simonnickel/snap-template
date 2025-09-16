@@ -18,26 +18,29 @@ extension ConfigureTabsScreen {
 		let tab: TabConfiguration.Tab
 		let tabsSetting: SettingsService.Value<TabConfiguration?>
 		let defaultConfiguration: TabConfiguration
-		
-        // TODO: Merge into struct
-		@State private var isOn: Bool = false
-		@State private var isRequired: Bool = false
-        /// `false` if the tab will not be visible in the tab bar.
-		@State private var isVisibleInTabBar: Bool = false
+        
+        private struct States {
+            var isOn: Bool
+            var isRequired: Bool
+            /// `false` if the tab will not be visible in the tab bar.
+            var isVisibleInTabBar: Bool
+        }
+        
+        @State private var state: States = States(isOn: false, isRequired: false, isVisibleInTabBar: false)
 		
 		var body: some View {
             
             // TODO: Haptic Feedback on label tap
             let icon = tabConfigurationIconMapping[tab.id]
-            let variant: Style.Views.List.Row.Variant<AnyHashable> = isRequired ? .plain : .enabled($isOn)
+            let variant: Style.Views.List.Row.Variant<AnyHashable> = state.isRequired ? .plain : .enabled($state.isOn)
             StyleListRow(variant, icon: icon) {
                 Text(tab.name)
 			}
             // TODO: set disabled style
-//            .if(!isVisibleInTabBar) { view in
+//            .if(!state.isVisibleInTabBar) { view in
 //				view.theme(color: .foregroundDisabled)
 //			}
-			.onChange(of: isOn) { oldValue, newValue in
+            .onChange(of: state.isOn) { oldValue, newValue in
 				let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
 				var disabled = configuration.disabled
 				if newValue {
@@ -47,11 +50,13 @@ extension ConfigureTabsScreen {
 				}
 				tabsSetting.set(configuration.updated(disabled: disabled))
 			}
-			.onChange(of: tabsSetting.value, initial: true) { oldValue, newValue in
-				let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
-				isOn = !configuration.disabled.contains(tab)
-				isRequired = configuration.required.contains(tab)
-				isVisibleInTabBar = configuration.isVisible(tab)
+            .onChange(of: tabsSetting.value, initial: true) { oldValue, newValue in
+                let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
+                state = States(
+                    isOn: !configuration.disabled.contains(tab),
+                    isRequired: configuration.required.contains(tab),
+                    isVisibleInTabBar: configuration.isVisible(tab)
+                )
 			}
 			
 		}
