@@ -47,21 +47,21 @@ extension ConfigureTabsScreen {
                         .style(element: .label)
 				}
 				
-                // TODO: When initial selection no longer is available -> choose one of the existing ones.
 				Section {
 					let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
 					let options = configuration.tabs
 						.filter({ tab in
 							configuration.isVisible(tab)
 						})
-					if let initial = configuration.initial ?? defaultConfiguration.initial ?? options.first {
+                    
+                    if let initial = configuration.initial ?? configuration.visibleTabs.first {
                         InitialTabPickerRow(
                             options: options,
                             selected: initial,
                             tabsSetting: tabsSetting,
                             defaultConfiguration: defaultConfiguration
                         )
-					}
+                    }
                 }
                 
                 Section { } footer: {
@@ -88,6 +88,12 @@ extension ConfigureTabsScreen {
 			}
             .onChange(of: tabsSetting.value, initial: true) { oldValue, newValue in
                 withAnimation {
+                    guard let newValue else { return }
+                    if let initial = newValue.initial, newValue.isVisible(initial) { }
+                    else {
+                        // If the selected initial is not visible, choose first visible tab.
+                        tabsSetting.set(newValue.updated(initial: newValue.visibleTabs.first))
+                    }
                     showResetButton = newValue != nil && newValue != defaultConfiguration
                 }
             }
