@@ -29,8 +29,11 @@ public struct AccentColorPicker: View {
         StyleFlowLayout(spacingH: spacing, spacingV: spacing) {
             ForEach(AccentOption.allCases, id: \.self) { option in
                 
-                // TODO: Identify default if no setting is available.
-                let isSelected = option == setting.value
+                var isSelected = if let value = setting.value {
+                    option == value
+                } else {
+                    option == .fallbackFallbackAlternative
+                }
                 
                 ZStack {
                     StyleShapeView(shape: .circle, surface: \.accentGradientStrong)
