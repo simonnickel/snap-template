@@ -22,7 +22,6 @@ public enum InterfaceScale: String, PickableSetting {
 	
 	public var scale: Double {
 		switch self {
-            // TODO: Could reference a Style Number Key to control the value.
             case .tiny: 0.75
             case .small: 0.9
             case .medium: 1

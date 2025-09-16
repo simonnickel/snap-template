@@ -18,7 +18,6 @@ extension ConfigureTabsScreen {
 		let defaultConfiguration: TabConfiguration
 		
 		public var body: some View {
-            // TODO FB12181540: Should be able to apply color and font to Picker.
             StyleListRow(.pick(options, titleKeyPath: \.name, selection: $selected), title: {
                 // TODO Localization
                 Text("Initial Tab")
