@@ -36,10 +36,7 @@ extension ConfigureTabsScreen {
             StyleListRow(variant, icon: icon) {
                 Text(tab.name)
 			}
-            // TODO: set disabled style
-//            .if(!state.isVisibleInTabBar) { view in
-//				view.theme(color: .foregroundDisabled)
-//			}
+            .controlState(state.isVisibleInTabBar ? .active : .inactive)
             .onChange(of: state.isOn) { oldValue, newValue in
 				let configuration = tabsSetting.value?.updated(withDefaults: defaultConfiguration) ?? defaultConfiguration
 				var disabled = configuration.disabled
