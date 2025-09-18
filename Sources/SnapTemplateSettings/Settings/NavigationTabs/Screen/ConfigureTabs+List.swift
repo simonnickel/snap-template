@@ -40,9 +40,9 @@ extension ConfigureTabsScreen {
 						tabsSetting.set(configuration.updated(tabs: tabs))
 					}
 				} footer: {
-					// TODO Localization
                     // TODO: .footnote? / .info / .footer
                     // TODO: inset
+                    // Missing Localisation
 					StyleLabel("First 5 tabs are displayed.")
                         .style(element: .label)
 				}
@@ -70,7 +70,7 @@ extension ConfigureTabsScreen {
                             StyleButton {
                                 tabsSetting.set(nil)
                             } content: {
-                                // TODO Localization
+                                // Missing Localisation
                                 StyleLabel(icon: \.reset) {
                                     StyleStack {
                                         Text("Reset")

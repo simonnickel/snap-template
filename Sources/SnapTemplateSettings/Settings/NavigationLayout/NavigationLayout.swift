@@ -10,7 +10,7 @@ public struct NavigationLayout: PickableSetting {
     
     public let style: SnapNavigation.NavigationStyle
 	
-	// TODO Localisation
+    // Missing Localisation
 	public static var title: String { "Navigation Layout" }
     
     public static var allCases: [NavigationLayout] {
@@ -21,7 +21,7 @@ public struct NavigationLayout: PickableSetting {
         
     public var id: SnapNavigation.NavigationStyle { style.self }
     
-    // TODO Localisation
+    // Missing Localisation
     public var title: String {
         switch style {
             case .automatic: "Automatic"

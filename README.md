@@ -75,3 +75,4 @@ Added `ITSAppUsesNonExemptEncryption` key with value `NO`, see: [Complying with 
 - Widgets using SwiftData (display, edit)
 - Release Notes
 - Multiple windows
+- Localisation (search "// Missing Localisation")

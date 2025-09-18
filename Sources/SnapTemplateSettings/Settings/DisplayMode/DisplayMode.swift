@@ -7,12 +7,12 @@ import SwiftUI
 
 public enum DisplayMode: String, PickableSetting {
 	
-	// TODO Localisation
+    // Missing Localisation
 	public static var title: String { "Display Mode" }
 	
 	public var id: String { self.rawValue }
 	
-	// TODO Localisation
+	// Missing Localisation
 	public var title: String { self.rawValue.uppercasedFirstLetter }
 	
 	
