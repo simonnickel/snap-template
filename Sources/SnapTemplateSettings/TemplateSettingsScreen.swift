@@ -59,7 +59,6 @@ public struct TemplateSettingsScreen: View {
             }
             
         }
-        .navigationTitle("Settings") // TODO: Part of Navigation / Screen definition?
         
     }
     
@@ -69,11 +68,7 @@ public struct TemplateSettingsScreen: View {
 // MARK - Preview
 
 #Preview {
-	
-	NavigationStack {
-		
-		TemplateSettingsScreen()
-		
-	}
+    
+    Template.Preview(screen: TemplateSettingsDestination.settingsScreen)
 	
 }
