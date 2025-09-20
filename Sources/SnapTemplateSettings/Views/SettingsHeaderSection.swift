@@ -33,8 +33,7 @@ public struct SettingsHeaderSection: View {
                     .style(element: .title)
                 }
                 Text(text)
-                    .style(font: \.content)
-// TODO:                    .theme(text: .textBlock)
+                    .style(font: \.textBlock)
             }
         }
 	}
