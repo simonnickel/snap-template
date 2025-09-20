@@ -40,11 +40,9 @@ extension ConfigureTabsScreen {
 						tabsSetting.set(configuration.updated(tabs: tabs))
 					}
 				} footer: {
-                    // TODO: .footnote? / .info / .footer
-                    // TODO: inset
                     // Missing Localisation
 					StyleLabel("First 5 tabs are displayed.")
-                        .style(element: .label)
+                        .styleListSectionFooterLabel()
 				}
 				
 				Section {
