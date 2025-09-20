@@ -3,6 +3,7 @@
 //  Created by Simon Nickel
 //
 
+import SnapCore
 import SnapDependencies
 import SnapNavigation
 import SnapTemplateSettings
@@ -36,7 +37,7 @@ public struct TemplateModifierScene<Destination: SnapNavigationDestination> : Vi
 
             // Settings
             .navigationStyle(templateState.navigationLayout?.style)
-			.preferredColorScheme(templateState.displayMode?.colorScheme)
+            .colorScheme(templateState.displayMode?.colorScheme)
         
             // Others
 #if !os(macOS) // macOS settings are available in the application menu.
