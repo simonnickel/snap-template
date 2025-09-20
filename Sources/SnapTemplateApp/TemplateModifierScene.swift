@@ -3,7 +3,7 @@
 //  Created by Simon Nickel
 //
 
-import SnapCore
+import SnapFoundation
 import SnapDependencies
 import SnapNavigation
 import SnapTemplateSettings
