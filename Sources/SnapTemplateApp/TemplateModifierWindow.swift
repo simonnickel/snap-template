@@ -11,17 +11,23 @@ import SnapTemplateUtil
 import SnapStyle
 import SwiftUI
 
-public struct TemplateModifierScene<Destination: SnapNavigationDestination> : ViewModifier {
+extension View {
+    public func templatePrepare<Destination: SnapNavigationDestination>(window: SnapNavigation.Window<Destination>) -> some View {
+        modifier(TemplateModifierWindow(window: window))
+    }
+}
+
+struct TemplateModifierWindow<Destination: SnapNavigationDestination> : ViewModifier {
 
 	@Dependency(\.templateState) private var templateState: TemplateState
 	
 	private let window: SnapNavigation.Window<Destination>
 	
-	public init(window: SnapNavigation.Window<Destination>) {
+	init(window: SnapNavigation.Window<Destination>) {
 		self.window = window
 	}
 	
-	public func body(content: Content) -> some View {
+	func body(content: Content) -> some View {
 		content
         
             // SnapStyle
