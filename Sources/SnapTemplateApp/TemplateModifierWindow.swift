@@ -30,7 +30,7 @@ struct TemplateModifierWindow<Destination: SnapNavigationDestination> : ViewModi
 	func body(content: Content) -> some View {
 		content
         
-            // SnapStyle
+            // - Style
             .style(accent: \.primary)
             .styleOverride(
                 accents: [
@@ -41,11 +41,15 @@ struct TemplateModifierWindow<Destination: SnapNavigationDestination> : ViewModi
             .style(scaleFactor: templateState.interfaceScale?.scale)
             .styleSetup(templateState.style)
 
-            // Settings
+            // - Settings
             .navigationStyle(templateState.navigationLayout?.style)
             .colorScheme(templateState.displayMode?.colorScheme)
         
-            // Others
+            // - Navigation
+            // Forward elevation defined by SnapNavigation to SnapStyle.
+            .environment(\.navigationElevationKeyPath, \.styleElevation)
+        
+            // - Others
 #if !os(macOS) // macOS settings are available in the application menu.
 			.tabViewSidebarBottomBar {
 				HStack {
