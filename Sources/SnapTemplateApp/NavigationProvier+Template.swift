@@ -8,8 +8,8 @@ import SnapNavigation
 extension SnapNavigationProvider {
     
     /// A default implementation to use if no customisation is needed.
-    public func templateDefaultRootDestinations(for scene: SnapNavigation.Window<Destination>) -> [Destination] {
-        switch scene {
+    public func templateDefaultRootDestinations(for window: SnapNavigation.Window<Destination>) -> [Destination] {
+        switch window {
             case .main: tabConfigurationEnabledTabs
             case .window(_, let configuration):
                 if configuration.style != .single, configuration.shouldBuildRoute {

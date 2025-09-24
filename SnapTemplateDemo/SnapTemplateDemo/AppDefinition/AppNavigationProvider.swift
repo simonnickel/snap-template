@@ -12,8 +12,8 @@ struct AppNavigationProvider: SnapNavigationProvider {
 	
 	typealias Destination = AppDestination
 	
-	func initial(for scene: SnapNavigation.Window<Destination>.Initializable) -> Destination {
-		switch scene {
+	func initial(for window: SnapNavigation.Window<Destination>.Initializable) -> Destination {
+		switch window {
             case .main: tabConfigurationInitial ?? .circle
 			case .settings: .settingsTemplate(.settingsScreen)
 		}
@@ -21,9 +21,9 @@ struct AppNavigationProvider: SnapNavigationProvider {
     
     static let rootDestinationOptions: [Destination] = [.triangle, .rectangle, .circle]
 	
-	func rootDestinations(for scene: SnapNavigation.Window<Destination>) -> [Destination] {
+	func rootDestinations(for window: SnapNavigation.Window<Destination>) -> [Destination] {
         // Customize if necessary.
-        templateDefaultRootDestinations(for: scene)
+        templateDefaultRootDestinations(for: window)
 	}
 	
 	func parent(of destination: Destination) -> Destination? {
