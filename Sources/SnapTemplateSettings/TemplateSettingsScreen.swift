@@ -17,8 +17,6 @@ public struct TemplateSettingsScreen: View {
 	public init() {}
 	
 	@Dependency(\.settingsService) private var settings
-    
-    // TODO: Background of sheet should have a different Dark Mode color than the view behind the sheet.
 	
 	public var body: some View {
         StyleList {
