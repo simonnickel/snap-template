@@ -10,7 +10,7 @@ import SwiftUI
 
 enum AppDestination: SnapNavigationDestination {
 		
-	case rectangle
+    case rectangle(index: Int)
 	case rectangleA, rectangleB
 	
 	case circle
@@ -22,7 +22,7 @@ enum AppDestination: SnapNavigationDestination {
 
 	var definition: SnapNavigation.ScreenDefinition {
 		switch self {
-            case .rectangle: .init(title: "Rectangle", icon: \Style.Keys.Icon.navGroupRectangle)
+            case .rectangle(let index): .init(title: "Rectangle \(index)", icon: \Style.Keys.Icon.navGroupRectangle)
 			case .rectangleA: .init(title: "Rectangle A", icon: \Style.Keys.Icon.navGroupRectangle)
 			case .rectangleB: .init(title: "Rectangle B", icon: \Style.Keys.Icon.navGroupRectangle)
 				

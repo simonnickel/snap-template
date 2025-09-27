@@ -19,7 +19,7 @@ struct AppNavigationProvider: SnapNavigationProvider {
 		}
 	}
     
-    static let rootDestinationOptions: [Destination] = [.triangle, .rectangle, .circle]
+    static let rootDestinationOptions: [Destination] = [.triangle, .rectangle(index: 0), .circle]
 	
 	func rootDestinations(for window: SnapNavigation.Window<Destination>) -> [Destination] {
         // Customize if necessary.
@@ -28,8 +28,9 @@ struct AppNavigationProvider: SnapNavigationProvider {
 	
 	func parent(of destination: Destination) -> Destination? {
 		switch destination {
-			case .triangle, .rectangle, .circle, .settingsTemplate(_): nil
-			case .rectangleA, .rectangleB: .rectangle
+            case .rectangle(index: let index): index < 1 ? .rectangle(index: 0) : .rectangle(index: index - 1)
+            case .triangle, .circle, .settingsTemplate(_): nil
+            case .rectangleA, .rectangleB: .rectangle(index: 0)
 			case .circleA: .circle
 		}
 	}
@@ -57,7 +58,7 @@ extension AppNavigationProvider {
         tabs: rootDestinationOptions.map { $0.tab },
         required: [AppDestination.triangle.tab],
         disabled: [],
-        initial: AppDestination.rectangle.tab
+        initial: AppDestination.rectangle(index: 0).tab
     )
 
 }

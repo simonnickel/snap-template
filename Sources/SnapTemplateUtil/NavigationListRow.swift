@@ -23,7 +23,6 @@ public struct NavigationListRow<Destination: SnapNavigationDestination>: View {
     }
     
     public var body: some View {
-        // TODO: isPresentingDestination does not work well here, because the same list row exists on the next screen. Could be changed to `isPresenting(_ destination:, from:)` and check the combination.
         StyleListRow(.navigation(isPresented: isActive), icon: destination.icon) {
             navigator(.present(destination, style: .push))
         } title: {

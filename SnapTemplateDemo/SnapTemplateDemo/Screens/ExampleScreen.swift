@@ -26,7 +26,11 @@ struct ExampleScreen: View {
                     Text(dataSource.content)
                 }
                 
-                NavigationListRow(destination: AppDestination.rectangle)
+                if case let .rectangle(index) = destination {
+                    NavigationListRow(destination: AppDestination.rectangle(index: index + 1))
+                } else {
+                    NavigationListRow(destination: AppDestination.rectangle(index: 0))
+                }
                 
             } header: {
                 
