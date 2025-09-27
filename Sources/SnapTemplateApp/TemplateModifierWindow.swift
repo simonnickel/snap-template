@@ -53,6 +53,9 @@ struct TemplateModifierWindow<Destination: SnapNavigationDestination> : ViewModi
 #if !os(macOS) // macOS settings are available in the application menu.
 			.tabViewSidebarBottomBar {
 				HStack {
+                    // TODO FB: Does not update accent when changed, only on restart.
+                    // Happens as long as anywhere inside of the view hierarchy is a conditional branch or AnyView.
+                    // Could not reproduce it in a separate project.
                     NavigationButton(destination: TemplateSettingsDestination.settingsScreen)
 				}
 			}
