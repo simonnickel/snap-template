@@ -7,7 +7,7 @@ import SnapStyle
 
 public enum AccentOption: Codable, CaseIterable, Sendable {
     
-    // TODO: Cleaner definitions
+    // TODO finetuning: Cleaner definitions
     
     case blueFallbackAlternative
     case blueYellow
