@@ -34,8 +34,8 @@ struct TemplateModifierWindow<Destination: SnapNavigationDestination> : ViewModi
             .style(accent: \.primary)
             .styleOverride(
                 accents: [
-                    \.primary: .base(.definition(.value(templateState.accentPrimary ?? .fallbackPrimary))),
-                    \.secondary: .base(.definition(.value(templateState.accentSecondary ?? .fallbackSecondary))),
+                    \.primary: .base(.value(templateState.accentPrimary ?? .fallbackPrimary)),
+                    \.secondary: .base(.value(templateState.accentSecondary ?? .fallbackSecondary)),
                 ]
             )
             .style(scaleFactor: templateState.interfaceScale?.scale)

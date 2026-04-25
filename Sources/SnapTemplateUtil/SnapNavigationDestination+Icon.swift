@@ -9,8 +9,8 @@ import SnapStyle
 extension SnapNavigationDestination {
     
     /// A typed KeyPath to access the icon. `SnapNavigation.ScreenDefinition` can not provide the icon as ValueBuilderKeyPath.
-    public var icon: Style.Keys.Icon.ValueBuilderKeyPath? {
-        definition.icon as? Style.Keys.Icon.ValueBuilderKeyPath
+    public var icon: Style.Attribute.Icon.ValueBuilderKeyPath? {
+        definition.icon as? Style.Attribute.Icon.ValueBuilderKeyPath
     }
     
 }

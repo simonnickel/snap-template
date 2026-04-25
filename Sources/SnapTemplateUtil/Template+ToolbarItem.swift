@@ -11,7 +11,7 @@ extension Template {
     
     @MainActor
     @ToolbarContentBuilder
-    public static func toolbarItem(_ destination: SnapNavigationDestination, placement: ToolbarItemPlacement = .automatic) -> some ToolbarContent {
+    public static func toolbarItem(_ destination: any SnapNavigationDestination, placement: ToolbarItemPlacement = .automatic) -> some ToolbarContent {
         ToolbarItem(placement: placement) {
             NavigationButton(destination: destination)
                 .style(labelContent: [.icon])

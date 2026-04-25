@@ -11,9 +11,9 @@ public struct NavigationButton: View {
     
     @Environment(\.navigator) private var navigator
     
-    private let destination: SnapNavigationDestination
+    private let destination: any SnapNavigationDestination
     
-    public init(destination: SnapNavigationDestination) {
+    public init(destination: any SnapNavigationDestination) {
         self.destination = destination
     }
     
@@ -34,7 +34,7 @@ public struct NavigationButton: View {
         
         case screen
         
-        var definition: SnapNavigation.ScreenDefinition { .init(title: "Rectangle", icon: \Style.Keys.Icon.favorite) }
+        var definition: SnapNavigation.ScreenDefinition { .init(title: "Rectangle", icon: \Style.Attribute.Icon.favorite) }
         
         var label: any View { StyleLabel(definition.title, icon: icon) }
         

@@ -29,18 +29,18 @@ public struct AccentColorPicker: View {
         StyleFlowLayout(spacingH: spacing, spacingV: spacing) {
             ForEach(AccentOption.allCases, id: \.self) { option in
                 
-                var isSelected = if let value = setting.value {
+                let isSelected = if let value = setting.value {
                     option == value
                 } else {
                     option == .fallbackFallbackAlternative
                 }
                 
                 ZStack {
-                    StyleShapeView(shape: .circle, surface: \.accentGradientStrong)
+                    StyleShapeView(shape: \.circle, surface: \.accentGradientStrong)
                         .styleOverride(
                             accents: [
-                                \.primary: .base(.definition(.value(option.accentPair.0))),
-                                \.secondary: .base(.definition(.value(option.accentPair.1))),
+                                \.primary: .base(.value(option.accentPair.0)),
+                                \.secondary: .base(.value(option.accentPair.1)),
                             ]
                         )
                     

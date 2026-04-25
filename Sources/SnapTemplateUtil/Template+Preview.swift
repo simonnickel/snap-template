@@ -14,11 +14,14 @@ extension Template {
     /// A convenience Container to prepare `#Preview` content
     public struct Preview<Content: View>: View {
         
-        let screen: SnapNavigationDestination?
+        // TODO: Is holding the state actually necessary for previews?
+        @State var style: Style = Style()
+        
+        let screen: (any SnapNavigationDestination)?
         
         let content: (() -> Content)?
         
-        public init(screen: SnapNavigationDestination) where Content == EmptyView {
+        public init(screen: any SnapNavigationDestination) where Content == EmptyView {
             self.screen = screen
             self.content = nil
         }
@@ -37,7 +40,7 @@ extension Template {
                     content?()
                 }
             }
-            .styleSetup()
+            .styleSetup(style)
         }
     }
     
@@ -73,7 +76,7 @@ extension Template {
         
         var definition: SnapNavigation.ScreenDefinition {
             switch self {
-                case .example: .init(title: "Example", icon: \Style.Keys.Icon.favorite)
+                case .example: .init(title: "Example", icon: \Style.Attribute.Icon.favorite)
             }
         }
         
