@@ -15,6 +15,13 @@ Contains shared code and Demo Xcode project to setup and use SNAP in an iOS App.
 [documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
 
 
+## Requirements
+
+- iOS 18+, macOS 15+
+- Swift 6.3
+- Dependencies: [snap-core](https://github.com/simonnickel/snap-core), [snap-dependencies](https://github.com/simonnickel/snap-dependencies), [snap-navigation](https://github.com/simonnickel/snap-navigation), [snap-settings-service](https://github.com/simonnickel/snap-settings-service), [snap-style](https://github.com/simonnickel/snap-style)
+
+
 ## Motivation
 
 > Finishing the last 20% of a project takes 80% of the time.
@@ -26,12 +33,12 @@ The goal of SnapTemplate is to already have the last 20% ready, before you even 
 Even if you don't plan to finish the last 60% of it, it allows to test a quick idea with a full app experience around it.
 
 
-# SnapTemplateDemo
+## Demo project
 
-An Xcode project with a base setup of [SNAP](https://github.com/simonnickel/snap). The app comes with structure, navigation and infrastructure prepared, to quickly setup a new app using the SNAP packages.
+SnapTemplateDemo is an Xcode project with a base setup of [SNAP](https://github.com/simonnickel/snap). The app comes with structure, navigation and infrastructure prepared, to quickly setup a new app using the SNAP packages.
 
 
-## Create new App
+### Create new App
 
 1. Create and clone repository.
 2. Copy files from snap-app-template and get everything in the correct place.
@@ -41,7 +48,7 @@ An Xcode project with a base setup of [SNAP](https://github.com/simonnickel/snap
 4. Follow setup steps of [snap-settings-service](https://github.com/simonnickel/snap-settings-service#setup).
 
 
-## Template
+### Template
 
 The Template comes with:
  
@@ -53,13 +60,13 @@ The Template comes with:
 <img src="/screenshot-settings.png" height="400">
 
 
-## Configurations
+### Configurations
 
-### Info.plist
+#### Info.plist
 
 Added `ITSAppUsesNonExemptEncryption` key with value `NO`, see: [Complying with Encryption Export Regulations](https://developer.apple.com/documentation/security/complying_with_encryption_export_regulations)
 
-### Build Settings
+#### Build Settings
 
  - Set `Swift Language Version` to 6
  - Enabled Strict Concurrency checking: `SWIFT_STRICT_CONCURRENCY = complete;`
