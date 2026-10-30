@@ -10,7 +10,7 @@ import SnapTemplateUtil
 import SnapStyle
 import SwiftUI
 
-// Missing Localisation
+// TODO-7: Missing localization
 
 public struct TemplateSettingsScreen: View {
 	

@@ -7,12 +7,12 @@ import Foundation
 
 public enum InterfaceScale: String, PickableSetting {
 	
-    // Missing Localisation
+    // TODO-7: Missing localization
 	public static var title: String { "Interface Scale" }
 	
 	public var id: String { self.rawValue }
 	
-    // Missing Localisation
+    // TODO-7: Missing localization
 	public var title: String { self.rawValue.uppercasedFirstLetter }
 	
 	

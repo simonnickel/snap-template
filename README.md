@@ -54,7 +54,7 @@ The Template comes with:
  
 1. Infrastructure to define dependencies and configuration of SNAP packages ready to go.
 2. Boilerplate to define a navigation hierarchy for the app using [snap-navigation](https://github.com/simonnickel/snap-navigation).
-3. A base settings screen using [snap-settings-service](https://github.com/simonnickel/snap-settings-service) with some theme configuration options. 
+3. A base settings screen using [snap-settings-service](https://github.com/simonnickel/snap-settings-service) with some theme configuration options. A header and contact section are planned, see [TODO-1](docs/todo/todos.md).
 
 <img src="/screenshot.png" height="400">
 <img src="/screenshot-settings.png" height="400">
@@ -70,16 +70,3 @@ Added `ITSAppUsesNonExemptEncryption` key with value `NO`, see: [Complying with 
 
  - Set `Swift Language Version` to 6
  - Enabled Strict Concurrency checking: `SWIFT_STRICT_CONCURRENCY = complete;`
-
-
-## // TODO:  
-
-- Settings Screen
-    - Settings Header
-    - Contact
-- Generic Usage Statistics
-- SwiftData with sync
-- Widgets using SwiftData (display, edit)
-- Release Notes
-- Multiple windows
-- Localisation (search "// Missing Localisation")

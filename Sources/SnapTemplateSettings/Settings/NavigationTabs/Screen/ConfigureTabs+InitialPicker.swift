@@ -19,7 +19,7 @@ extension ConfigureTabsScreen {
 		
 		public var body: some View {
             StyleListRow(.pick(options, titleKeyPath: \.name, selection: $selected), title: {
-                // Missing Localisation
+                // TODO-7: Missing localization
                 Text("Initial Tab")
             })
 			.onChange(of: selected) { oldValue, newValue in
