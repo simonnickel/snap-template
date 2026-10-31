@@ -44,7 +44,7 @@ Even if you don't plan to finish the last 60% of it, it allows to test a quick i
 SnapTemplateDemo is an Xcode project with a base setup of [SNAP](https://github.com/simonnickel/snap). The app comes with structure, navigation and infrastructure prepared, to quickly setup a new app using the SNAP packages.
 
 
-### Create new App
+### Create a new app
 
 1. Create and clone repository.
 2. Copy files from snap-app-template and get everything in the correct place.
