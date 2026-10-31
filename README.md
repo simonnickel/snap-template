@@ -9,10 +9,16 @@
 
 Contains shared code and Demo Xcode project to setup and use SNAP in an iOS App. 
 
-[![Documentation][documentation badge]][documentation] 
+[![SnapTemplateApp][documentation app badge]][documentation app] 
+[![SnapTemplateSettings][documentation settings badge]][documentation settings] 
+[![SnapTemplateUtil][documentation util badge]][documentation util] 
 
-[documentation]: https://swiftpackageindex.com/simonnickel/snap-template/main/documentation/snaptemplate
-[documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
+[documentation app]: https://swiftpackageindex.com/simonnickel/snap-template/main/documentation/snaptemplateapp
+[documentation app badge]: https://img.shields.io/badge/SnapTemplateApp-DocC-blue
+[documentation settings]: https://swiftpackageindex.com/simonnickel/snap-template/main/documentation/snaptemplatesettings
+[documentation settings badge]: https://img.shields.io/badge/SnapTemplateSettings-DocC-blue
+[documentation util]: https://swiftpackageindex.com/simonnickel/snap-template/main/documentation/snaptemplateutil
+[documentation util badge]: https://img.shields.io/badge/SnapTemplateUtil-DocC-blue
 
 
 ## Requirements
