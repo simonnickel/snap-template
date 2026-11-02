@@ -9,7 +9,7 @@ Outstanding work on the package.
 - With the demo's `Package.resolved`: it pins `snap-style` to `dc9f469`, which has no `Style.Attribute`, used by `SnapNavigationDestination+Icon.swift`.
 - With every dependency at `main`: `AccentOption.swift` uses `Style.Attribute.Accent`, which does not resolve. `SettingsService` is not `Sendable` where `SettingsPickerRow.swift` and `SettingsToggle.swift` need it.
 - Update the sources to the current dependencies and update the demo's `Package.resolved`.
-- Build the demo to verify the removal of `Preview Content`, which is uncommitted in the working copy. Then commit it.
+- Once the demo builds, remove `Preview Content` from it, including its `DEVELOPMENT_ASSET_PATHS` value and the project's exception for the folder. Build again to verify.
 
 ## TODO-9: Xcode 27 project template
 
